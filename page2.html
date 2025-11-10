@@ -1,21 +1,2946 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page 2</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Prepe - DMLT Hematology Practical Notes 🔬</title>
+    <!-- The demo file included Google Fonts, so I am replicating that behavior exactly as per instructions -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* ==================== ROOT VARIABLES ==================== */
+        /* This CSS is an exact replica from the provided demo file to ensure identical styling */
+        :root {
+            --primary: #fb923c; /* orange-400 */
+            --primary-light: #fed7aa; /* orange-200 */
+            --primary-dark: #f97316; /* orange-500 */
+            --secondary: #ea580c; /* orange-600 */
+            --text-dark: #1f2937;
+            --text-medium: #4b5563;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ==================== GLOBAL STYLES ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ==================== SLIDES CONTAINER ==================== */
+        .slides-container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 30px 15px;
+        }
+
+        /* ==================== SLIDE STYLES ==================== */
+        .slide {
+            width: 100%;
+            background: #ffffff;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            padding: 40px;
+            overflow: hidden;
+            border-radius: 24px;
+            border-top: 8px solid;
+            border-image: linear-gradient(90deg, var(--primary), var(--secondary)) 1;
+        }
+        
+        .slide::after {
+            content: 'Prepe';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            font-size: 180px;
+            font-weight: 900;
+            color: rgba(0, 0, 0, 0.03);
+            z-index: 1;
+            pointer-events: none;
+            text-transform: uppercase;
+        }
+
+        .slide-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-light);
+            background-color: #f1f5f9;
+            padding: 5px 15px;
+            border-radius: 20px;
+            z-index: 2;
+        }
+
+        /* ==================== HEADER ==================== */
+        .slide-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 35px;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .brand {
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--primary-dark);
+        }
+        
+        .slide-title {
+            font-size: 52px;
+            font-weight: 900;
+            color: var(--text-dark);
+            text-align: right;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .slide-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--secondary), var(--primary));
+            border-radius: 2px;
+        }
+
+        /* ==================== CONTENT AREA ==================== */
+        .slide-content {
+            flex-grow: 1;
+            display: flex;
+            gap: 30px;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .main-column {
+            flex-basis: 65%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .side-column {
+            flex-basis: 35%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* ==================== TYPOGRAPHY ==================== */
+        h3 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin: 0 0 20px 0;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border-color);
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        h3::before {
+            content: '✨';
+            margin-right: 10px;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 18px;
+        }
+
+        .main-column > ul > li {
+            background-color: #f9fafb;
+            border-radius: 12px;
+            padding: 15px;
+            transition: all 0.2s ease;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .main-column > ul > li:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .point-title {
+            font-weight: 700;
+            font-size: 21px;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .point-title .icon {
+            margin-right: 12px;
+            font-size: 24px;
+            color: var(--primary);
+        }
+        
+        .point-desc,
+        .point-list {
+            font-size: 18px;
+            color: var(--text-medium);
+            padding-left: 36px;
+            line-height: 1.7;
+        }
+
+        .point-list li {
+            margin-bottom: 10px;
+            padding-left: 8px;
+            position: relative;
+        }
+
+        .point-list li::before {
+            content: '▸';
+            position: absolute;
+            left: -12px;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .point-example {
+            font-style: italic;
+            font-size: 17px;
+            color: var(--text-light);
+            margin-top: 10px;
+            padding: 12px 16px;
+            border-left: 4px solid var(--primary);
+            background: #fffbeb;
+            border-radius: 8px;
+        }
+
+        .point-example::before {
+            content: '💡';
+            margin-right: 8px;
+        }
+        
+        /* Formula card style */
+        .formula-card {
+            background: #f1f5f9;
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--secondary);
+            padding: 20px;
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        /* ==================== INFO CARDS ==================== */
+        .info-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--secondary);
+        }
+
+        .info-card.grow {
+            flex-grow: 1;
+        }
+
+        .info-card h4 {
+            margin: 0 0 15px 0;
+            font-size: 22px;
+            color: var(--text-dark);
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+        }
+
+        .info-card h4::before {
+            content: '🔖';
+            margin-right: 10px;
+        }
+
+        .info-card p,
+        .info-card ul {
+            margin: 0;
+            font-size: 17px;
+            color: var(--text-medium);
+            line-height: 1.7;
+        }
+
+        /* ==================== TABLES ==================== */
+        .mini-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+        }
+
+        .mini-table th,
+        .mini-table td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 14px;
+            text-align: left;
+        }
+        
+        .mini-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .mini-table th {
+            background: var(--primary);
+            color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 15px;
+        }
+
+        .mini-table tbody tr:hover {
+            background: #fff7ed;
+        }
+
+        .mini-table tbody tr:nth-child(even) {
+            background: #f9fafb;
+        }
+
+        /* ==================== BADGES ==================== */
+        .badge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .badge {
+            background-color: var(--primary-light);
+            border: 1px solid var(--primary);
+            color: var(--secondary);
+            padding: 12px 8px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 700;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .badge:hover {
+            transform: scale(1.05);
+            background: var(--primary);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ==================== TIMELINE ==================== */
+        .timeline {
+            border-left: 3px solid var(--primary);
+            padding-left: 25px;
+            margin-top: 15px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 25px;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -32px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid #fff;
+        }
+
+        .timeline-title {
+            font-weight: 700;
+            font-size: 19px;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        .timeline-desc {
+            font-size: 17px;
+            color: var(--text-medium);
+            line-height: 1.7;
+        }
+
+        /* ==================== FLOW CHART ==================== */
+        .flow-chart {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .flow-step {
+            text-align: center;
+            font-weight: 700;
+            font-size: 16px;
+            background: #f9fafb;
+            padding: 15px 10px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+            min-width: 100px;
+        }
+
+        .flow-step:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .flow-arrow {
+            font-size: 30px;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        /* ==================== FOOTER TAGS ==================== */
+        .slide-footer {
+            display: flex;
+            gap: 12px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 30px;
+            flex-shrink: 0;
+            width: 100%;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-tag {
+            background-color: var(--primary-light);
+            color: var(--secondary);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 700;
+            border: 1px solid transparent;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .footer-tag:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* ==================== HERO SLIDE ==================== */
+        .hero-slide {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+
+        .hero-title {
+            font-size: 95px;
+            font-weight: 900;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            letter-spacing: -3px;
+        }
+
+        .hero-subtitle {
+            font-size: 34px;
+            color: var(--secondary);
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            width: 100%;
+        }
+
+        .hero-tile {
+            background: #f9fafb;
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .hero-tile:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .hero-tile h3 {
+            color: var(--primary-dark);
+            border: none;
+            padding: 0;
+            margin-bottom: 12px;
+            font-size: 24px;
+        }
+
+        .hero-tile p {
+            margin: 0;
+            font-size: 18px;
+            color: var(--text-medium);
+            line-height: 1.7;
+            font-weight: 500;
+        }
+        
+        /* ==================== STAT BOXES ==================== */
+        .stat-box {
+            background: #f9fafb;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .stat-box:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-number {
+            font-size: 42px;
+            font-weight: 900;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: var(--text-medium);
+            font-weight: 600;
+        }
+
+        /* ==================== QUICK FACT BOX ==================== */
+        .quick-fact {
+            background: #fffbeb;
+            border-left: 5px solid #facc15; /* yellow-400 */
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .quick-fact::before {
+            content: '⚡';
+            font-size: 20px;
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-sm);
+            color: #ca8a04; /* yellow-600 */
+        }
+
+        .quick-fact strong {
+            color: #a16207; /* yellow-700 */
+            font-weight: 800;
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1100px) {
+            .slide {
+                padding: 30px 25px;
+            }
+
+            .slide-content {
+                flex-direction: column;
+            }
+
+            .main-column,
+            .side-column {
+                flex-basis: auto;
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .slides-container {
+                padding: 20px 10px;
+            }
+
+            .slide {
+                padding: 25px 20px;
+            }
+
+             .slide::after {
+                font-size: 120px;
+            }
+
+            .slide-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+                margin-bottom: 25px;
+            }
+
+            .brand {
+                font-size: 30px;
+            }
+
+            .slide-title {
+                font-size: 36px;
+                text-align: left;
+            }
+
+            .slide-title::after {
+                left: 0;
+                right: auto;
+            }
+
+            .hero-grid,
+            .slide-content[style*="grid-template-columns"] {
+                grid-template-columns: 1fr !important;
+            }
+
+            h3 { font-size: 24px; }
+            .point-title { font-size: 19px; }
+            .point-list { font-size: 16px; padding-left: 25px;}
+            .info-card h4 { font-size: 20px; }
+            .info-card p, .info-card ul { font-size: 16px; }
+            .hero-title { font-size: 60px; }
+            .hero-subtitle { font-size: 24px; }
+            .hero-tile h3 { font-size: 22px; }
+            .hero-tile p { font-size: 16px; }
+
+            .mini-table {
+                font-size: 14px;
+            }
+            .mini-table th, .mini-table td {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slides-container {
+                padding: 15px 5px;
+            }
+            .slide {
+                padding: 20px 15px;
+                margin-bottom: 20px;
+            }
+             .slide::after {
+                font-size: 90px;
+            }
+            .slide-title { font-size: 30px; }
+            .hero-title { font-size: 48px; }
+            .hero-subtitle { font-size: 20px; }
+            
+            /* Final slide grid ko yahaan stack karenge */
+            .final-slide-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ==================== NEW STYLES FOR FINAL SLIDE ==================== */
+        /* This is also an exact replica from the demo file */
+        .final-slide {
+            background: linear-gradient(135deg, #f5f3ff, #fdf2f8); /* Light purple to light pink gradient */
+            border-image: linear-gradient(90deg, #6d28d9, #db2777) 1; /* Purple to pink border */
+            text-align: center;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .final-slide-content {
+            max-width: 900px;
+            width: 100%;
+            z-index: 2;
+            position: relative;
+        }
+
+        .final-slide h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #6d28d9; /* Indigo-700 */
+            margin-bottom: 8px;
+        }
+
+        .final-slide h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px; /* Image se match karne ke liye 48px kiya */
+            font-weight: 900;
+            color: var(--text-dark);
+            margin-bottom: 15px; /* Margin adjust kiya */
+            border: none;
+            padding: 0;
+            letter-spacing: -1px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            display: block; /* YEH LINE ADD KI HAI global H3 style ko override karne ke liye */
+        }
+        
+        .final-slide h3::before {
+            content: none; /* Remove sparkle emoji */
+        }
+
+        .final-slide p {
+            font-size: 20px;
+            color: var(--text-medium);
+            margin-bottom: 40px;
+        }
+
+        .final-slide-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .final-slide-box {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            text-align: center; /* Box text ko center karne ke liye ye add kiya hai */
+            text-decoration: none; /* Link underline hatane ke liye add kiya */
+        }
+
+        .final-slide-box:hover {
+            transform: translateY(-12px); /* Hover effect ko behtar kiya */
+            border-color: #6d28d9;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07); /* Shadow ko soft kiya */
+        }
+
+        .final-slide-box .icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .final-slide-box .icon.offer {
+            background-color: #dcfce7; /* green-100 */
+            color: #22c55e; /* green-500 */
+        }
+        
+        .final-slide-box .icon.courses {
+            background-color: #e0f2fe; /* sky-100 */
+            color: #0ea5e9; /* sky-500 */
+        }
+        
+        .final-slide-box .icon.insta {
+            background-color: #fdf2f8; /* pink-100 */
+            color: #db2777; /* pink-600 */
+        }
+
+        /* Instagram text ko pink karne ke liye naya rule */
+        .final-slide-box.insta-box h4 {
+            color: #db2777;
+        }
+        
+        /* Link hover par text color ko fix rakhne ke liye rules */
+        .final-slide-box:hover h4 {
+            color: var(--text-dark);
+        }
+        .final-slide-box:hover span {
+            color: var(--text-light);
+        }
+        .final-slide-box.insta-box:hover h4 {
+            color: #db2777;
+        }
+        
+        .final-slide-box h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin: 0;
+        }
+        
+        .final-slide-box h4::before {
+             content: none; /* Remove tag emoji */
+        }
+
+        .final-slide-box span {
+            font-size: 16px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .final-slide-divider {
+            width: 80%;
+            height: 2px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--border-color),
+                var(--border-color) 6px,
+                transparent 6px,
+                transparent 12px
+            );
+            margin: 0 auto 40px auto;
+        }
+
+        .final-slide-button {
+            font-family: 'Poppins', sans-serif;
+            display: inline-block; /* inline-flex se inline-block kiya */
+            padding: 18px 40px;
+            font-size: 22px;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            border-radius: 16px;
+            text-decoration: none;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+        }
+
+        .final-slide-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 25px -5px rgba(234, 88, 12, 0.3);
+        }
+        
+        /* Responsive adjustments for the new slide */
+        @media (max-width: 768px) {
+            .final-slide h3 {
+                font-size: 36px;
+            }
+            .final-slide p {
+                font-size: 18px;
+            }
+            .final-slide-box h4 {
+                font-size: 20px;
+            }
+        }
+    </style>
 </head>
-<body class="bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-sans">
-    <div class="min-h-screen flex items-center justify-center">
-        <div class="text-center p-8">
-            <h1 class="text-5xl font-bold text-green-500 mb-4">This is the Second Page</h1>
-            <p class="text-lg text-gray-600 dark:text-gray-300">Here you can see the content for the second document, demonstrating the switch.</p>
-             <div class="mt-8">
-                <img src="https://picsum.photos/800/400?random=2" alt="Random placeholder image" class="rounded-lg shadow-xl mx-auto">
+<body>
+    <main class="slides-container" id="slidesContainer">
+
+        <!-- ==================== SLIDE 21: HERO (HEMATOLOGY INTRO) ==================== -->
+        <section class="slide hero-slide">
+            <div class="slide-number">21 / 41</div>
+            <div class="brand" style="position: absolute; top: 40px; left: 40px;">Prepe</div>
+            <h1 class="hero-title">Hematology Practical</h1>
+            <p class="hero-subtitle">Manual Cell Counting (RBC, WBC, Platelet) और PBF</p>
+            <div class="hero-grid">
+                <div class="hero-tile">
+                    <h3>Hemocytometer</h3>
+                    <p>Manual counting के लिए special microscope slide। Neubauer's chamber सबसे आम है, जिसमें 9 sq. mm का grid होता है।</p>
+                </div>
+                <div class="hero-tile">
+                    <h3>Peripheral Blood Film (PBF)</h3>
+                    <p>रक्त की एक slide, जिसे Leishman's stain से रंगा जाता है। यह RBC, WBC, और Platelets की morphology (आकार-प्रकार) देखने में मदद करता है।</p>
+                </div>
+                <div class="hero-tile">
+                    <h3>Manual Counts</h3>
+                    <p>Diluting fluids का उपयोग करके blood cells को dilute करना और फिर hemocytometer में गिनना। RBC, WBC और Platelet के लिए अलग-अलग fluids और dilutions होते हैं।</p>
+                </div>
             </div>
-        </div>
-    </div>
+            <p style="margin-top: 40px; font-size: 20px; font-weight: 600; color: var(--text-medium);">Scroll for Complete Notes ↓</p>
+        </section>
+
+        <!-- ==================== SLIDE 22: HEMOCYTOMETER COUNTING AREAS ==================== -->
+        <section class="slide">
+            <div class="slide-number">22 / 41</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">Hemocytometer Areas 🗺️</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Neubauer's Chamber (Structure)</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">🔬</span>Improved Neubauer's Chamber</div>
+                            <ul class="point-list">
+                                <li>यह DMLT में सबसे ज़्यादा इस्तेमाल होने वाला counting chamber है।</li>
+                                <li>इसमें H-shape का 'moat' (नाली) होता है जो दो counting areas बनाता है।</li>
+                                <li>हर area में 9 बड़े squares (1mm x 1mm) होते हैं।</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">📏</span>Dimensions (माप)</div>
+                            <ul class="point-list">
+                                <li>Total Area: 3 mm x 3 mm = 9 sq. mm</li>
+                                <li><strong>Depth (गहराई): 0.1 mm</strong> ( यह viva का सबसे important सवाल है!)</li>
+                                <li>Volume of 1 large square: 1mm x 1mm x 0.1mm = 0.1 cu. mm (μL)</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">⬜</span>4 Corner Squares (WBC Counting)</div>
+                            <ul class="point-list">
+                                <li>ये 9 बड़े squares में से 4 कोनों वाले squares होते हैं।</li>
+                                <li>इन्हें 'W' squares भी कहते हैं।</li>
+                                <li>हर square 16 छोटे squares में बंटा होता है।</li>
+                                <li>Total area counted (WBC): 4 sq. mm</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">➕</span>Central Square (RBC & Platelet Counting)</div>
+                            <ul class="point-list">
+                                <li>यह 1 sq. mm का central square होता है।</li>
+                                <li>यह 25 medium-sized squares में बंटा होता है।</li>
+                                <li>हर medium square 16 छोटे squares में बंटा होता है।</li>
+                                <li><strong>RBC Counting:</strong> हम 5 medium squares (4 कोने + 1 बीच वाला) गिनते हैं।</li>
+                                <li><strong>Platelet Counting:</strong> हम 25 medium squares (पूरा 1 sq. mm) गिनते हैं।</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Counting Area Map 🗺️</h4>
+                        <p style="margin-bottom: 12px;">Neubauer chamber के 9 बड़े squares:</p>
+                        <table class="mini-table">
+                            <thead>
+                                <tr>
+                                    <th>Square</th>
+                                    <th>Used For</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>W</strong> (Top-Left)</td>
+                                    <td>WBC Count</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>W</strong> (Top-Right)</td>
+                                    <td>WBC Count</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>R</strong> (Center)</td>
+                                    <td>RBC & Platelet Count</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>W</strong> (Bottom-Left)</td>
+                                    <td>WBC Count</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>W</strong> (Bottom-Right)</td>
+                                    <td>WBC Count</td>
+                                </tr>
+                                <tr>
+                                    <td>(Other 4 squares)</td>
+                                    <td>Usually not used</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="info-card grow">
+                        <h4>Key Facts for Viva 🎙️</h4>
+                        <ul style="list-style-type: '▸'; padding-left: 20px;">
+                            <li><strong>Chamber Depth:</strong> 0.1 mm</li>
+                            <li><strong>Volume of 1 sq mm:</strong> 0.1 µL</li>
+                            <li><strong>RBC Area:</strong> 5/25 = 1/5 sq. mm</li>
+                            <li><strong>WBC Area:</strong> 4 sq. mm</li>
+                            <li><strong>Platelet Area:</strong> 1 sq. mm</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">🔬 Neubauer's Chamber</div>
+                <div class="footer-tag">📏 0.1 mm Depth</div>
+                <div class="footer-tag">⬜ WBC Squares</div>
+                <div class="footer-tag">➕ RBC Squares</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 23: RBC DILUTING FLUID ==================== -->
+        <section class="slide">
+            <div class="slide-number">23 / 41</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">RBC Diluting Fluid 🩸</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Purpose of Diluting Fluid</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">🎯</span>मुख्य उद्देश्य (Main Purpose)</div>
+                            <ul class="point-list">
+                                <li>Blood में 45-50 लाख RBCs/cu.mm होते हैं, जिन्हें गिनना असंभव है।</li>
+                                <li>Fluid, RBCs को गिनने लायक (countable) संख्या तक dilute करता है।</li>
+                                <li>Standard dilution 1:200 है।</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">🛡️</span>RBC Lysis Prevention (RBC को फटने से बचाना)</div>
+                            <ul class="point-list">
+                                <li>Fluid <strong>Isotonic</strong> होना चाहिए।</li>
+                                <li>Isotonic solution (जैसे Normal Saline) cell के 'osmotic pressure' को maintain रखता है, जिससे RBCs न तो
+                                    सिकुड़ते हैं (crenate) और न ही फटते (lyse) हैं।</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">🚫</span>Prevent Clumping (क्लंपिंग रोकना)</div>
+                            <ul class="point-list">
+                                <li>Fluid में anticoagulants होते हैं जो RBCs को आपस में चिपकने से रोकते हैं।</li>
+                                <li>यह uniform distribution (समान वितरण) सुनिश्चित करता है।</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h3>Types of RBC Diluting Fluids</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">🧪</span>Hayem's Fluid (हायम'स फ्लूइड)</div>
+                            <ul class="point-list">
+                                <li><strong>Sodium Chloride (NaCl):</strong> Isotonicity (परासरण) maintain करता है।</li>
+                                <li><strong>Sodium Sulphate (Na₂SO₄):</strong> RBCs की clumping (गुच्छे) को रोकता है।</li>
+                                <li><strong>Mercuric Chloride (HgCl₂):</strong> Preservative (संरक्षक) है, Fungal/Bacterial growth रोकता है।</li>
+                                <li><strong>Disadvantage:</strong> Mercuric chloride ज़हरीला होता है और proteins को precipitate कर सकता है।</li>
+                            </ul>
+                        </li>
+                         <li>
+                            <div class="point-title"><span class="icon">🧪</span>Gower's Fluid (गावर'स फ्लूइड)</div>
+                             <ul class="point-list">
+                                 <li><strong>Sodium Sulphate (Na₂SO₄):</strong> Isotonicity और anti-clumping।</li>
+                                 <li><strong>Glacial Acetic Acid:</strong> WBCs को lyse (नष्ट) करता है (हालांकि Hayem's ऐसा नहीं करता)।</li>
+                                 <li><strong>Distilled Water:</strong> Solvent.</li>
+                                 <li><strong>Advantage:</strong> Hayem's fluid से बेहतर माना जाता है क्योंकि यह clumping को ज़्यादा प्रभावी ढंग से
+                                     रोकता है।</li>
+                            </ul>
+                        </li>
+                         <li>
+                            <div class="point-title"><span class="icon">🧪</span>Normal Saline (0.85% or 0.9%)</div>
+                             <ul class="point-list">
+                                 <li><strong>सबसे सरल (Simplest) fluid।</strong></li>
+                                 <li>Perfectly isotonic, RBCs को फटने नहीं देता।</li>
+                                 <li><strong>Use:</strong> Emergency में या जब अन्य fluids उपलब्ध न हों।</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Fluid Comparison ⚖️</h4>
+                        <table class="mini-table">
+                            <thead>
+                                <tr>
+                                    <th>Fluid</th>
+                                    <th>Key Component</th>
+                                    <th>Advantage</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Hayem's</strong></td>
+                                    <td>Mercuric Chloride</td>
+                                    <td>Good preservative</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Gower's</strong></td>
+                                    <td>Sodium Sulphate</td>
+                                    <td>Prevents clumping</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Normal Saline</strong></td>
+                                    <td>NaCl only</td>
+                                    <td>Simple, Isotonic</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="info-card grow">
+                        <h4>Precautions (सावधानियां) ⚠️</h4>
+                        <ul style="list-style-type: '▸'; padding-left: 20px;">
+                            <li>Fluid clear (पारदर्शी) होना चाहिए, fungal growth नहीं।</li>
+                            <li>Pipette में air bubbles (हवा के बुलबुले) नहीं आने चाहिए।</li>
+                            <li>Dilution (1:200) exact होना चाहिए।</li>
+                            <li>Mixing (मिलाना) proper होना चाहिए।</li>
+                        </ul>
+                    </div>
+                    <div class="quick-fact">
+                        <strong>Viva Alert:</strong> "Isotonic" का मतलब है "समान लवण सांद्रता" (Equal salt concentration), जो cell lysis को रोकता है।
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">🧪 Hayem's Fluid</div>
+                <div class="footer-tag">💧 Isotonic Solution</div>
+                <div class="footer-tag">🚫 Prevent Lysis</div>
+                <div class="footer-tag">🩸 1:200 Dilution</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 24: RBC COUNT (PRINCIPLE) ==================== -->
+        <section class="slide">
+            <div class="slide-number">24 / 41</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">RBC Count (Principle) 🎯</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Principle of RBC Count</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">🔬</span>Core Concept (मूल सिद्धांत)</div>
+                            <ul class="point-list">
+                                <li>RBC count का सिद्धांत, रक्त को एक ज्ञात dilution (known dilution) तक dilute करना और उसे एक ज्ञात volume (known
+                                    volume) में गिनना है।</li>
+                                <li>"Total RBCs per cubic millimeter (cu.mm)" की गणना करने के लिए Dilution Factor और Volume Factor का उपयोग किया
+                                    जाता है।</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">➗</span>Dilution Factor (DF)</div>
+                            <ul class="point-list">
+                                <li>RBCs को गिनने के लिए <strong>1:200</strong> का dilution किया जाता है।</li>
+                                <li><strong>RBC Pipette:</strong> इसमें 0.5, 1, और 101 के marks होते हैं।</li>
+                                <li><strong>Procedure:</strong> 0.5 mark तक blood + 101 mark तक RBC fluid।</li>
+                                <li><strong>Calculation:</strong> Dilution = 0.5 / (101 - 1) = 0.5 / 100 = 1/200.</li>
+                                <li>इसका मतलब है कि गिना गया रक्त original रक्त से 200 गुना पतला है।</li>
+                                <li>Calculation में, हम <strong>DF = 200</strong> से गुणा (multiply) करेंगे।</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">📦</span>Volume Factor (VF)</div>
+                            <ul class="point-list">
+                                <li>Volume = Area (A) x Depth (D)</li>
+                                <li><strong>Depth (D):</strong> Neubauer's chamber की गहराई <strong>0.1 mm</strong> होती है।</li>
+                                <li><strong>Area (A):</strong> हम central square के 5 medium squares (4 कोने + 1 बीच वाला) गिनते हैं।</li>
+                                <li>Area of 1 medium square = 1/5 mm x 1/5 mm = 1/25 sq. mm</li>
+                                <li>Area of 5 medium squares = 5 x (1/25) = <strong>1/5 sq. mm (or 0.2 sq. mm)</strong></li>
+                                <li><strong>Volume (V):</strong> V = A x D = (1/5 sq. mm) x (1/10 mm) = <strong>1/50 cu. mm</strong></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">🧮</span>Final Calculation Formula</div>
+                            <ul class="point-list">
+                                <li>Let 'N' = 5 squares में गिने गए RBCs की संख्या।</li>
+                                <li>RBCs in 1/50 cu. mm = N</li>
+                                <li>RBCs in 1 cu. mm = N / (1/50) = N x 50</li>
+                                <li>यह diluted blood में है। Original blood के लिए DF (200) से गुणा करें।</li>
+                                <li><strong>Total RBC Count = N x 50 x 200</strong></li>
+                                <li><strong>Total RBC Count = N x 10,000</strong></li>
+                            </ul>
+                            <p class="point-example">Short-cut: जितने RBCs (N) गिने, उसके आगे चार ज़ीरो (0000) लगा दें।</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Formula Breakdown 🧮</h4>
+                        <div class="formula-card">
+                            RBC Count = <br> (N × Dilution Factor) / (Area × Depth)
+                        </div>
+                        <ul style="list-style-type: '▸'; padding-left: 20px; margin-top: 15px;">
+                            <li><strong>N:</strong> Cells Counted</li>
+                            <li><strong>Dilution:</strong> 200</li>
+                            <li><strong>Area:</strong> 1/5 (or 0.2) sq. mm</li>
+                            <li><strong>Depth:</strong> 1/10 (or 0.1) mm</li>
+                        </ul>
+                    </div>
+                    <div class="info-card grow">
+                        <h4>When is RBC Count Required? 🩺</h4>
+                        <p style="margin-bottom: 15px;">RBC count इन स्थितियों का पता लगाने के लिए किया जाता है:</p>
+                        <ul style="list-style-type: '▸'; padding-left: 20px;">
+                            <li><strong>Anaemia (अनीमिया):</strong> RBC count कम होना।</li>
+                            <li><strong>Polycythemia (पॉलीसाइथीमिया):</strong> RBC count बहुत ज़्यादा होना।</li>
+                            <li><strong>Dehydration (पानी की कमी):</strong> RBC count अस्थायी रूप से ज़्यादा दिख सकता है।</li>
+                            <li><strong>Blood Loss (रक्तस्राव):</strong> Count कम हो जाता है।</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">🎯 Principle</div>
+                <div class="footer-tag">➗ Dilution 1:200</div>
+                <div class="footer-tag">📦 Volume 1/50 cu.mm</div>
+                <div class="footer-tag">🧮 N x 10,000</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 25: RBC COUNT (PROCEDURE) ==================== -->
+        <section class="slide">
+            <div class="slide-number">25 / 41</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">RBC Count (Procedure) 🧪</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Step-by-Step Procedure (SOP)</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-title">1. Blood Collection (रक्त संग्रह)</div>
+                            <div class="timeline-desc">EDTA anticoagulated blood (Purple top vial) लें। Sample को 2-3 मिनट तक
+                                gently mix करें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">2. Dilution (1:200)</div>
+                            <div class="timeline-desc">RBC pipette का उपयोग करके <strong>0.5 mark</strong> तक blood aspirate (खींचें)
+                                करें। Pipette के बाहर लगे blood को पोंछ दें। अब, <strong>101 mark</strong> तक RBC diluting fluid (Hayem's/Gower's)
+                                aspirate करें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">3. Mixing (मिश्रण)</div>
+                            <div class="timeline-desc">Pipette को 3-5 मिनट तक हाथों के बीच घुमाकर mix करें। (Pipette shaker का भी
+                                उपयोग किया जा सकता है)। Bulb में मौजूद fluid को 2-3 बूँदें discard (फेंक दें)।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">4. Charging the Chamber (चैंबर भरना)</div>
+                            <div class="timeline-desc">Neubauer's chamber पर coverslip रखें। Pipette की नोक को coverslip के किनारे
+                                पर 45° angle पर रखें और fluid की एक बूँद को capillary action से chamber में जाने दें। Overfilling (ज़्यादा भरना) या underfilling (कम भरना) न करें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">5. Settling Time (सेटल होने का समय)</div>
+                            <div class="timeline-desc">Chamber को 2-3 मिनट तक स्थिर रखें ताकि RBCs grid पर settle हो जाएं। इसे
+                                'Petri dish method' (नम filter paper के साथ) से सूखने से बचाया जा सकता है।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">6. Counting (गिनती)</div>
+                            <div class="timeline-desc">Microscope को 10x (Low power) पर focus करें, फिर 40x (High power) पर shift करें। Central
+                                square के 5 medium squares (4 कोने + 1 बीच वाला) में RBCs की गिनती करें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">7. Calculation (गणना)</div>
+                            <div class="timeline-desc">गिनी गई cells की संख्या (N) को 10,000 से गुणा करें। <strong>Result = N x 10,000
+                                cells/cu.mm</strong></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Counting Rules (TL/BR Rule) 🚫</h4>
+                        <p style="margin-bottom: 15px;">Counting में R-pattern (सर्पिल) follow करें।</p>
+                        <ul style="list-style-type: '▸'; padding-left: 20px;">
+                            <li>Square की <strong>Top (T)</strong> और <strong>Left (L)</strong> lines पर touch होने वाली cells को <strong>Count करें (Include)</strong>।</li>
+                            <li>Square की <strong>Bottom (B)</strong> और <strong>Right (R)</strong> lines पर touch होने वाली cells को <strong>Count न करें (Exclude)</strong>।</li>
+                            <li>यह 'double counting' (दोहरी गिनती) को रोकता है।</li>
+                        </ul>
+                    </div>
+                    <div class="info-card grow">
+                        <h4>Calculation Example 🧮</h4>
+                        <p>मान लीजिए आपने 5 squares में cells गिनी:</p>
+                        <ul style="list-style-type: '▸'; padding-left: 20px; margin-top: 15px;">
+                            <li>Square 1: 100 cells</li>
+                            <li>Square 2: 95 cells</li>
+                            <li>Square 3: 105 cells</li>
+                            <li>Square 4: 102 cells</li>
+                            <li>Square 5: 98 cells</li>
+                        </ul>
+                        <p style="margin-top: 15px;"><strong>Total (N) = 100+95+105+102+98 = 500</strong></p>
+                        <div class="formula-card">
+                            Count = 500 × 10,000 <br> = 5,000,000 cells/cu.mm
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">🧪 SOP</div>
+                <div class="footer-tag">⏱️ 3-5 min Mixing</div>
+                <div class="footer-tag">🚫 TL/BR Rule</div>
+                <div class="footer-tag">🧮 N x 10,000</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 26: RBC COUNT (RESULTS & INTERPRETATION) ==================== -->
+        <section class="slide">
+            <div class="slide-number">26 / 41</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">RBC Count (Interpretation) 📈</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Normal Values (सामान्य मान)</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">👨</span>Adult Males (वयस्क पुरुष)</div>
+                            <ul class="point-list">
+                                <li><strong>4.5 - 6.0 million cells/cu.mm</strong></li>
+                                <li>(or 4.5 - 6.0 x 10¹²/L)</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">👩</span>Adult Females (वयस्क महिलाएं)</div>
+                            <ul class="point-list">
+                                <li><strong>4.0 - 5.5 million cells/cu.mm</strong></li>
+                                <li>(or 4.0 - 5.5 x 10¹²/L)</li>
+                                <li>(Note: महिलाओं में पुरुषों की तुलना में थोड़ा कम होता है।)</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">👶</span>Newborns (नवजात)</div>
+                            <ul class="point-list">
+                                <li><strong>5.5 - 6.5 million cells/cu.mm</strong></li>
+                                <li>(जन्म के समय ज़्यादा होता है और धीरे-धीरे कम हो जाता है।)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h3>Abnormal Values (असामान्य मान)</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">📉</span>Low RBC Count (Erythrocytopenia)</div>
+                            <ul class="point-list">
+                                <li>इसे <strong>Anaemia (अनीमिया)</strong> कहते हैं।</li>
+                                <li><strong>कारण:</strong></li>
+                                <li>Iron, Vitamin B12, या Folic acid की कमी।</li>
+                                <li>Blood loss (रक्तस्राव) - जैसे Accident या heavy periods.</li>
+                                <li>Hemolysis (RBCs का टूटना) - जैसे Malaria, Thalassemia.</li>
+                                <li>Bone marrow failure (Aplastic anemia).</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">📈</span>High RBC Count (Polycythemia / Erythrocytosis)</div>
+                            <ul class="point-list">
+                                <li><strong>Polycythemia Vera:</strong> Bone marrow का cancer.</li>
+                                <li><strong>Secondary Polycythemia:</strong></li>
+                                <li>Dehydration (पानी की कमी) - सबसे आम कारण।</li>
+                                <li>Smoking (धूम्रपान) - Carbon monoxide के कारण।</li>
+                                <li>High altitude (ऊंचाई पर रहना) - Oxygen की कमी के कारण।</li>
+                                <li>Lung disease (फेफड़ों की बीमारी) - COPD.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Common Errors (सामान्य गलतियाँ) ⚠️</h4>
+                        <p style="margin-bottom: 15px;">Count गलत आने के कारण:</p>
+                        <table class="mini-table">
+                            <thead>
+                                <tr>
+                                    <th>Error Type</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Improper mixing (ठीक से न मिलाना)</td>
+                                    <td>Low or High</td>
+                                </tr>
+                                <tr>
+                                    <td>Air bubbles in pipette (बुलबुले)</td>
+                                    <td>Low Count</td>
+                                </tr>
+                                <tr>
+                                    <td>Overfilling chamber ( ज़्यादा भरना)</td>
+                                    <td>High Count</td>
+                                </tr>
+                                <tr>
+                                    <td>Underfilling chamber (कम भरना)</td>
+                                    <td>Low Count</td>
+                                </tr>
+                                <tr>
+                                    <td>Counting mistake (TL/BR rule)</td>
+                                    <td>Inaccurate</td>
+                                </tr>
+                                <tr>
+                                    <td>Contaminated fluid (दूषित फ्लूइड)</td>
+                                    <td>High Count</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="quick-fact">
+                        <strong>Fact:</strong> Manual counting में 10-15% error हो सकता है। Automated cell counters (hematology analyzers) ज़्यादा accurate होते हैं।
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">📈 Normal Values</div>
+                <div class="footer-tag">📉 Anaemia</div>
+                <div class="footer-tag">📈 Polycythemia</div>
+                <div class="footer-tag">⚠️ Common Errors</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 27: WBC DILUTING FLUID ==================== -->
+        <section class="slide">
+            <div class="slide-number">27 / 41</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">WBC Diluting Fluid ⚪</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Purpose of WBC Diluting Fluid</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">🎯</span>मुख्य उद्देश्य (Main Purpose)</div>
+                            <ul class="point-list">
+                                <li>WBCs को गिनने लायक (countable) संख्या तक dilute करना।</li>
+                                <li>Standard dilution 1:20 है।</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">💥</span>RBC Lysis (RBCs को नष्ट करना) - <strong>MUST</strong></div>
+                            <ul class="point-list">
+                                <li>RBCs (50 लाख) की संख्या WBCs (4-11 हज़ार) से 1000 गुना ज़्यादा होती है।</li>
+                                <li>अगर RBCs को नष्ट नहीं किया गया, तो WBCs गिनना असंभव होगा।</li>
+                                <li>Fluid <strong>Hypotonic</strong> (हाइपोटोनिक) होता है, जो RBCs को 'lyse' (नष्ट) कर देता है।</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">🖌️</span>Staining WBC Nucleus (WBC केंद्रक को रंगना)</div>
+                            <ul class="point-list">
+                                <li>Fluid में एक 'light stain' (हल्का रंग) होता है।</li>
+                                <li>यह WBCs के nucleus को stain करता है, जिससे वे 'debris' (कचरे) से अलग, बैंगनी
+                                    dots (बिंदुओं) के रूप में दिखाई देते हैं।</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h3>Turk's Fluid (टर्क'स फ्लूइड)</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">🧪</span>Composition (संरचना)</div>
+                            <ul class="point-list">
+                                <li><strong>Glacial Acetic Acid (2%):</strong> यह मुख्य घटक है। यह RBCs की wall को तोड़कर उन्हें lyse (नष्ट) कर देता है।</li>
+                                <li><strong>Gentian Violet (1%):</strong> यह stain है। यह WBCs के nucleus को 'purple' (बैंगनी) रंग देता है।</li>
+                                <li><strong>Distilled Water (97%):</strong> यह solvent (विलायक) है और hypotonic solution बनाता है।</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">✅</span>Advantages (फायदे)</div>
+                             <ul class="point-list">
+                                 <li>RBCs को 100% नष्ट कर देता है।</li>
+                                 <li>WBC nucleus को stain करके पहचानना आसान बनाता है।</li>
+                                 <li>Stable (स्थिर) और सस्ता (cheap) है।</li>
+                            </ul>
+                        </li>
+                         <li>
+                            <div class="point-title"><span class="icon">❌</span>Disadvantages (नुकसान)</div>
+                             <ul class="point-list">
+                                 <li>यह Eosinophils और Basophils को नष्ट कर सकता है।</li>
+                                 <li>Platelets को भी नष्ट कर देता है।</li>
+                                 <li>Nucleated RBCs (nRBCs) को नष्ट नहीं करता, जिससे WBC count झूठा (falsely high) आ
+                                     सकता है।</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Turk's Fluid: Key Actions 💥</h4>
+                        <table class="mini-table">
+                            <thead>
+                                <tr>
+                                    <th>Component</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Glacial Acetic Acid</strong></td>
+                                    <td>Lyse RBCs (RBC तोड़ता है)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Gentian Violet</strong></td>
+                                    <td>Stain WBC Nucleus (WBC रंगता है)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Distilled Water</strong></td>
+                                    <td>Solvent (विलायक)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="info-card grow">
+                        <h4>Safety Precautions ☣️</h4>
+                        <ul style="list-style-type: '▸'; padding-left: 20px;">
+                            <li><strong>Glacial Acetic Acid:</strong> यह corrosive (संक्षारक) होता है। Skin (त्वचा) या eyes (आँखों) के
+                                संपर्क में आने पर जल सकता है।</li>
+                            <li><strong>Gentian Violet:</strong> एक potent stain (पक्का रंग) है, कपड़ों और skin पर दाग लगाता है।</li>
+                            <li>हमेशा gloves (दस्ताने) और lab coat पहनें।</li>
+                        </ul>
+                    </div>
+                    <div class="quick-fact">
+                        <strong>Viva Alert:</strong> WBC fluid "Hypotonic" होता है (RBCs को lyse करने के लिए), जबकि RBC fluid "Isotonic" होता है (RBCs को बचाने के लिए)।
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">🧪 Turk's Fluid</div>
+                <div class="footer-tag">💥 Lyse RBCs</div>
+                <div class="footer-tag">🖌️ Stain WBC Nucleus</div>
+                <div class="footer-tag">⚪ 1:20 Dilution</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 28: WBC COUNT (PROCEDURE) ==================== -->
+        <section class="slide">
+            <div class="slide-number">28 / 41</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">WBC Count (Procedure) 🧪</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Step-by-Step Procedure (SOP)</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-title">1. Blood Collection & Dilution (1:20)</div>
+                            <div class="timeline-desc"><strong>WBC Pipette</strong> (जिसमें white bead होता है) का उपयोग करें।
+                                <strong>0.5 mark</strong> तक blood aspirate करें। <strong>11 mark</strong> तक WBC diluting fluid (Turk's
+                                fluid) aspirate करें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">2. Mixing (मिश्रण)</div>
+                            <div class="timeline-desc">Pipette को 3-5 मिनट तक mix करें। यह RBCs को lyse होने के लिए समय देता है।
+                                2-3 बूँदें discard (फेंक दें)।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">3. Charging & Settling</div>
+                            <div class="timeline-desc">RBC count की तरह ही chamber को charge करें। 2-3 मिनट settle होने दें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">4. Counting (गिनती)</div>
+                            <div class="timeline-desc">Microscope को <strong>10x (Low Power)</strong> पर set करें। Neubauer's
+                                chamber के <strong>4 बड़े corner squares (W)</strong> में WBCs की गिनती करें। (WBCs बैंगनी
+                                बिंदुओं के रूप में दिखाई देंगे)।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">5. Calculation (गणना)</div>
+                            <div class="timeline-desc">Total count (N) को 50 से गुणा करें। <strong>Result = N x 50 cells/cu.mm</strong></div>
+                        </div>
+                    </div>
+                    <h3>WBC Count Calculation</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">➗</span>Dilution Factor (DF)</div>
+                            <ul class="point-list">
+                                <li>Blood (0.5) / Fluid (11-1) = 0.5 / 10 = 1/20.</li>
+                                <li><strong>DF = 20</strong></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">📦</span>Volume Factor (VF)</div>
+                            <ul class="point-list">
+                                <li><strong>Area (A):</strong> 4 large squares = 4 x (1mm x 1mm) = <strong>4 sq. mm</strong></li>
+                                <li><strong>Depth (D):</strong> <strong>0.1 mm</strong></li>
+                                <li><strong>Volume (V):</strong> A x D = 4 x 0.1 = <strong>0.4 cu. mm (μL)</strong></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>WBC Calculation Formula 🧮</h4>
+                        <div class="formula-card">
+                            WBC Count = <br> (N × Dilution Factor) / (Area × Depth)
+                        </div>
+                        <ul style="list-style-type: '▸'; padding-left: 20px; margin-top: 15px;">
+                            <li>N = 4 squares में गिने गए WBCs</li>
+                            <li>WBC Count = (N x 20) / (4 x 0.1)</li>
+                            <li>WBC Count = (N x 20) / 0.4</li>
+                            <li>WBC Count = <strong>N x 50</strong></li>
+                        </ul>
+                    </div>
+                    <div class="info-card grow">
+                        <h4>Calculation Example 🧮</h4>
+                        <p>मान लीजिए आपने 4 squares में cells गिनी:</p>
+                        <ul style="list-style-type: '▸'; padding-left: 20px; margin-top: 15px;">
+                            <li>W1 (Top-Left): 40 cells</li>
+                            <li>W2 (Top-Right): 45 cells</li>
+                            <li>W3 (Bottom-Left): 35 cells</li>
+                            <li>W4 (Bottom-Right): 40 cells</li>
+                        </ul>
+                        <p style="margin-top: 15px;"><strong>Total (N) = 40+45+35+40 = 160</strong></p>
+                        <div class="formula-card">
+                            Count = 160 × 50 <br> = 8,000 cells/cu.mm
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">🧪 SOP</div>
+                <div class="footer-tag">➗ Dilution 1:20</div>
+                <div class="footer-tag">📦 4 Corner Squares</div>
+                <div class="footer-tag">🧮 N x 50</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 29: WBC COUNT (RESULTS & INTERPRETATION) ==================== -->
+        <section class="slide">
+            <div class="slide-number">29 / 41</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">WBC Count (Interpretation) 📈</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Normal Values (Total Leucocyte Count - TLC)</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">👥</span>Adults (वयस्क)</div>
+                            <ul class="point-list">
+                                <li><strong>4,000 - 11,000 cells/cu.mm</strong></li>
+                                <li>(4.0 - 11.0 x 10⁹/L)</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">👶</span>Newborns (नवजात)</div>
+                            <ul class="point-list">
+                                <li><strong>10,000 - 25,000 cells/cu.mm</strong></li>
+                                <li>(जन्म के समय बहुत ज़्यादा होता है।)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h3>Abnormal Values (असामान्य मान)</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">📈</span>High WBC Count (Leukocytosis)</div>
+                            <ul class="point-list">
+                                <li><strong>परिभाषा:</strong> WBC count > 11,000 /cu.mm</li>
+                                <li><strong>कारण:</strong></li>
+                                <li><strong>Bacterial Infections (बैक्टीरियल संक्रमण):</strong> जैसे Pneumonia, UTI, Appendicitis. (सबसे आम कारण)</li>
+                                <li><strong>Inflammation (सूजन):</strong> जैसे Burns (जलना), Heart attack.</li>
+                                <li><strong>Leukemia (ब्लड कैंसर):</strong> Count बहुत ज़्यादा हो सकता है (> 50,000 or 1,00,000).</li>
+                                <li><strong>Steroid use (दवाएं):</strong> Steroids लेने पर।</li>
+                                <li><strong>Pregnancy (गर्भावस्था):</strong> थोड़ा बढ़ सकता है।</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">📉</span>Low WBC Count (Leukopenia)</div>
+                            <ul class="point-list">
+                                <li><strong>परिभाषा:</strong> WBC count < 4,000 /cu.mm</li>
+                                <li><strong>कारण:</strong></li>
+                                <li><strong>Viral Infections (वायरल संक्रमण):</strong> जैसे Dengue, Influenza, HIV.</li>
+                                <li><strong>Typhoid Fever (टाइफाइड):</strong> यह एक bacterial infection है जो leukopenia करता है (Viva PYQ)।</li>
+                                <li><strong>Aplastic Anemia:</strong> Bone marrow failure.</li>
+                                <li><strong>Chemotherapy/Radiotherapy:</strong> Bone marrow को suppress करता है।</li>
+                                <li><strong>Autoimmune diseases:</strong> जैसे Lupus (SLE).</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Errors in WBC Counting ⚠️</h4>
+                        <p style="margin-bottom: 15px;">WBC count में गलतियों के मुख्य कारण:</p>
+                        <table class="mini-table">
+                            <thead>
+                                <tr>
+                                    <th>Error Cause</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Nucleated RBCs (nRBCs)</strong></td>
+                                    <td>Falsely <strong>High</strong> (झूठा ज़्यादा)</td>
+                                </tr>
+                                <tr>
+                                    <td>Platelet Clumps</td>
+                                    <td>Falsely <strong>High</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Incomplete RBC Lysis</td>
+                                    <td>Falsely <strong>High</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Old sample (पुराना सैंपल)</td>
+                                    <td>Falsely <strong>Low</strong> (WBCs टूट जाते हैं)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="info-card grow">
+                        <h4>Correction for nRBCs 🧮</h4>
+                        <p style="margin-bottom: 15px;">अगर PBF slide पर 5 से ज़्यादा nRBCs (per 100 WBCs) दिखते हैं, तो count को correct करना ज़रूरी है।</p>
+                        <div class="formula-card">
+                           Corrected WBC = <br> (Observed WBC × 100) / (100 + nRBCs)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">📈 Leukocytosis</div>
+                <div class="footer-tag">📉 Leukopenia</div>
+                <div class="footer-tag">🦠 Infection</div>
+                <div class="footer-tag">⚠️ nRBC Correction</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 30: PLATELET COUNT (PRINCIPLE + DILUTION) ==================== -->
+        <section class="slide">
+            <div class="slide-number">30 / 41</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">Platelet Count (Principle)  प्लेटलेट</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Principle of Platelet Count</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">🔬</span>Core Concept (मूल सिद्धांत)</div>
+                            <ul class="point-list">
+                                <li>WBC count के समान, Platelet count में भी RBCs को lyse (नष्ट) करना ज़रूरी है।</li>
+                                <li>WBCs को preserve (संरक्षित) रखने की ज़रूरत नहीं है।</li>
+                                <li>Platelets को clumping (चिपकने) से रोकना बहुत ज़रूरी है।</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">➗</span>Dilution (1:20)</div>
+                            <ul class="point-list">
+                                <li>Platelet count के लिए <strong>1:20</strong> का dilution किया जाता है।</li>
+                                <li>(Note: कुछ labs 1:100 भी करती हैं, लेकिन 1:20 ज़्यादा आम है)।</li>
+                                <li><strong>WBC Pipette</strong> का उपयोग करें: 0.5 mark तक blood + 11 mark तक fluid।</li>
+                                <li>(यह WBC count के समान dilution है)।</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h3>Diluting Fluid (1% Ammonium Oxalate)</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">🧪</span>Composition & Action</div>
+                            <ul class="point-list">
+                                <li><strong>1% Ammonium Oxalate (NH₄)₂C₂O₄:</strong> यह मुख्य घटक है।</li>
+                                <li><strong>Distilled Water:</strong> Solvent.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">💥</span>Action on RBCs (RBCs पर प्रभाव)</div>
+                            <ul class="point-list">
+                                <li>यह fluid RBCs को 'hemolyse' (हीमोलाइज़) कर देता है, लेकिन RBC ghosts (RBC के कंकाल)
+                                    पूरी तरह गायब नहीं होते, वे faint (धुंधले) दिखते हैं।</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">🚫</span>Action on WBCs & Platelets</div>
+                            <ul class="point-list">
+                                <li>यह WBCs और Platelets को preserve (संरक्षित) रखता है।</li>
+                                <li>Platelets phase-contrast microscope में चमकदार, छोटे बिंदुओं के रूप में दिखाई देते हैं।</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">✅</span>Advantages (फायदे)</div>
+                             <ul class="point-list">
+                                 <li>RBCs को lyse करता है, जिससे Platelets गिनना संभव होता है।</li>
+                                 <li>Platelets को preserve करता है।</li>
+                                 <li>Stable (स्थिर) और बनाने में आसान है।</li>
+                            </ul>
+                        </li>
+                         <li>
+                            <div class="point-title"><span class="icon">⏳</span>Precautions (सावधानियां)</div>
+                             <ul class="point-list">
+                                 <li>Fluid को filter (छानना) बहुत ज़रूरी है, क्योंकि dust particles (धूल के कण)
+                                     platelets जैसे दिख सकते हैं।</li>
+                                 <li>Fluid को refrigerate (ठंडा) रखना चाहिए।</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Why not Turk's Fluid? 🤔</h4>
+                        <p style="margin-bottom: 15px;">Turk's Fluid (WBC fluid) का उपयोग क्यों नहीं कर सकते?</p>
+                        <ul style="list-style-type: '▸'; padding-left: 20px;">
+                            <li>Turk's fluid में Glacial Acetic Acid होता है, जो Platelets को भी <strong>नष्ट (destroy)</strong> कर देता है।</li>
+                            <li>Ammonium Oxalate Platelets को नष्ट <strong>नहीं</strong> करता है।</li>
+                        </ul>
+                    </div>
+                    <div class="info-card grow">
+                        <h4>Platelet Characteristics ✨</h4>
+                        <ul style="list-style-type: '▸'; padding-left: 20px;">
+                            <li>Platelets (Thrombocytes) बहुत छोटी (2-3 µm), रंगहीन (non-nucleated) cell fragments होती हैं।</li>
+                            <li>वे बहुत 'sticky' (चिपचिपी) होती हैं और आसानी से clump (गुच्छा) बना लेती हैं।</li>
+                            <li><strong>Anticoagulant:</strong> EDTA (Purple top) सबसे अच्छा है क्योंकि यह clumping को
+                                रोकता है।</li>
+                        </ul>
+                    </div>
+                    <div class="quick-fact">
+                        <strong>Viva Alert:</strong> Platelet fluid RBCs को lyse करता है लेकिन Platelets को बचाता है।
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">🧪 1% Ammonium Oxalate</div>
+                <div class="footer-tag">💥 Lyse RBCs</div>
+                <div class="footer-tag">🚫 Preserve Platelets</div>
+                <div class="footer-tag">➗ Dilution 1:20</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 31: PLATELET COUNT (PROCEDURE) ==================== -->
+        <section class="slide">
+            <div class="slide-number">31 / 41</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">Platelet Count (Procedure) 🧪</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Step-by-Step Procedure (SOP)</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-title">1. Dilution (1:20)</div>
+                            <div class="timeline-desc">WBC Pipette में 0.5 mark तक blood लें और 11 mark तक 1% Ammonium Oxalate
+                                fluid भरें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">2. Mixing (मिश्रण)</div>
+                            <div class="timeline-desc">3-5 मिनट तक mix करें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">3. Charging & Settling (चैंबर भरना)</div>
+                            <div class="timeline-desc">Chamber को charge करें और <strong>10-15 मिनट</strong> तक 'moist chamber' (नम
+                                पेट्री डिश) में रखें। (Platelets हल्के होते हैं, इसलिए उन्हें settle होने में ज़्यादा समय लगता है)।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">4. Counting (गिनती)</div>
+                            <div class="timeline-desc">Microscope को <strong>40x (High Power)</strong> पर set करें। Central
+                                square (RBC square) के सभी <strong>25 medium squares</strong> (पूरा 1 sq. mm) में Platelets
+                                की गिनती करें।</div>
+                        </div>
+                    </div>
+                    <h3>Platelet Count Calculation</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">➗</span>Dilution Factor (DF)</div>
+                            <ul class="point-list">
+                                <li><strong>DF = 20</strong></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">📦</span>Volume Factor (VF)</div>
+                            <ul class="point-list">
+                                <li><strong>Area (A):</strong> 25 medium squares (पूरा central square) = <strong>1 sq. mm</strong></li>
+                                <li><strong>Depth (D):</strong> <strong>0.1 mm</strong></li>
+                                <li><strong>Volume (V):</strong> A x D = 1 x 0.1 = <strong>0.1 cu. mm (μL)</strong></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Platelet Calculation Formula 🧮</h4>
+                        <div class="formula-card">
+                            Count = (N × Dilution Factor) / (Area × Depth)
+                        </div>
+                        <ul style="list-style-type: '▸'; padding-left: 20px; margin-top: 15px;">
+                            <li>N = 1 sq. mm में गिने गए Platelets</li>
+                            <li>Count = (N x 20) / (1 x 0.1)</li>
+                            <li>Count = (N x 20) / 0.1</li>
+                            <li>Count = <strong>N x 200</strong></li>
+                        </ul>
+                    </div>
+                    <div class="info-card grow">
+                        <h4>Normal Values & Interpretation 📈</h4>
+                        <ul style="list-style-type: '▸'; padding-left: 20px;">
+                            <li><strong>Normal Range:</strong> 1,50,000 - 4,50,000 /cu.mm</li>
+                            <li><strong>Thrombocytopenia (कम होना):</strong> < 1.5 लाख।
+                                <ul><li>कारण: Dengue, Viral fevers, Aplastic anemia, ITP.</li></ul>
+                            </li>
+                            <li><strong>Thrombocytosis (ज़्यादा होना):</strong> > 4.5 लाख।
+                                <ul><li>कारण: Infections, Inflammation, Iron deficiency, Cancers.</li></ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="quick-fact">
+                        <strong>Dengue Fever:</strong> Dengue में Platelet count (Thrombocytopenia) की monitoring बहुत ज़रूरी है।
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">🧪 SOP</div>
+                <div class="footer-tag">⏱️ 10-15 min Settling</div>
+                <div class="footer-tag">📦 1 sq. mm Area</div>
+                <div class="footer-tag">🧮 N x 200</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 32: INTRODUCTION TO PBF ==================== -->
+        <section class="slide">
+            <div class="slide-number">32 / 41</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">Introduction to PBF 🎞️</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Peripheral Blood Film (PBF)</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">🔬</span>What is a PBF? (PBF क्या है?)</div>
+                            <ul class="point-list">
+                                <li>PBF (या blood smear) एक glass slide पर रक्त की एक पतली परत (thin film) होती है, जिसे
+                                    stain (रंग) करके microscope में देखा जाता है।</li>
+                                <li>यह Hematology lab का सबसे महत्वपूर्ण test है।</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">🎯</span>Why is PBF Important? (PBF क्यों ज़रूरी है?)</div>
+                            <ul class="point-list">
+                                <li>Automated counters (मशीनें) केवल 'count' (गिनती) बताती हैं, 'morphology' (आकार-प्रकार)
+                                    नहीं।</li>
+                                <li>PBF हमें cells को 'देखने' (visualize) की अनुमति देता है।</li>
+                                <li><strong>RBC Morphology:</strong> Anemia का प्रकार (microcytic, macrocytic) पता चलता है।</li>
+                                <li><strong>WBC Morphology:</strong> Infection, Leukemia (blasts), या abnormal cells का पता
+                                    चलता है।</li>
+                                <li><strong>Platelet Morphology:</strong> Clumps (गुच्छे) या large platelets देख सकते हैं।</li>
+                                <li><strong>Parasites:</strong> Malaria, Filaria जैसे परजीवी PBF में देखे जा सकते हैं।</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h3>Zones of an Ideal Smear (Smear के भाग)</h3>
+                    <p style="font-size: 18px; color: var(--text-medium); margin-bottom: 20px; padding: 15px; background: #f9fafb; border-radius: 12px;">
+                       एक अच्छी smear 'जीभ के आकार' (Tongue-shaped) की होनी चाहिए।
+                    </p>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">1️⃣</span>Head (सिर)</div>
+                            <ul class="point-list">
+                                <li>Smear का शुरुआती, मोटा (thick) हिस्सा।</li>
+                                <li>Cells एक-दूसरे के ऊपर (overlapping) होती हैं।</li>
+                                <li>Morphology देखने के लिए उपयुक्त नहीं है।</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">2️⃣</span>Body (शरीर)</div>
+                            <ul class="point-list">
+                                <li>Head और Tail के बीच का हिस्सा।</li>
+                                <li>यह PBF का मुख्य examination area (जाँच क्षेत्र) है।</li>
+                                <li>Cells (RBCs) थोड़ी-थोड़ी touch करती हुई, 'monolayer' (एकल परत) में होती हैं।</li>
+                                <li><strong>Ideal Zone:</strong> Morphology और DLC (Differential Leucocyte Count) के लिए सबसे
+                                    अच्छी जगह।</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">3️⃣</span>Tail (पूँछ) / Feather Edge</div>
+                            <ul class="point-list">
+                                <li>Smear का सबसे आखिरी, पतला (thin) हिस्सा।</li>
+                                <li>RBCs खिंचे हुए (distorted) और दूर-दूर होते हैं।</li>
+                                <li>Large cells (जैसे Monocytes) और Malaria parasites यहाँ ज़्यादा मिलते हैं।</li>
+                                <li>Morphology के लिए अच्छा नहीं है, लेकिन 'scanning' के लिए उपयोगी है।</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Ideal Smear Features ✅</h4>
+                        <ul style="list-style-type: '▸'; padding-left: 20px;">
+                            <li>Tongue-shaped (जीभ के आकार का)।</li>
+                            <li>Smooth (चिकना), कोई lines (धारियां) या holes (छेद) नहीं।</li>
+                            <li>Slide के 2/3 हिस्से तक।</li>
+                            <li>Feather edge (पंख जैसा किनारा) होना चाहिए।</li>
+                            <li> न बहुत मोटा (thick), न बहुत पतला (thin)।</li>
+                        </ul>
+                    </div>
+                    <div class="info-card grow">
+                        <h4>When to Make a PBF? 🩺</h4>
+                        <p style="margin-bottom: 15px;">PBF कब बनाना चाहिए:</p>
+                        <ul style="list-style-type: '▸'; padding-left: 20px;">
+                            <li>जब CBC machine 'flag' (चेतावनी) दे।</li>
+                            <li>Anaemia (Hb < 10)</li>
+                            <li>Leukocytosis (TLC > 11,000)</li>
+                            <li>Leukopenia (TLC < 4,000)</li>
+                            <li>Thrombocytopenia (Platelet < 1.5L)</li>
+                            <li>Malaria या fever का शक होने पर।</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">🎞️ PBF</div>
+                <div class="footer-tag">🔬 Morphology</div>
+                <div class="footer-tag">🎯 Head, Body, Tail</div>
+                <div class="footer-tag">🩺 Diagnosis</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 33: SMEAR PREPARATION ==================== -->
+        <section class="slide">
+            <div class="slide-number">33 / 41</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">Smear Preparation (SOP) 🖌️</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Step-by-Step Procedure</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-title">1. Prepare Slides (स्लाइड तैयार करना)</div>
+                            <div class="timeline-desc">एक clean (साफ), dry (सूखी), grease-free (ग्रीस-रहित) glass slide लें।
+                                Patient ID से label करें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">2. Drop Placement (रक्त की बूँद)</div>
+                            <div class="timeline-desc">EDTA sample को mix करें। Slide के एक किनारे (end) से 1 cm दूर रक्त की एक
+                                छोटी (2-3 mm) बूँद रखें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">3. The Spreader (स्प्रेडर)</div>
+                            <div class="timeline-desc">एक 'spreader' slide (जिसके किनारे smooth हों) लें। Spreader को
+                                <strong>30° - 45° angle</strong> पर blood drop के 'आगे' रखें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">4. Spreading (फैलाना)</div>
+                            <div class="timeline-desc">Spreader को पीछे (backward) खींचें जब तक वह blood drop को touch न कर ले।
+                                Blood, spreader के किनारे पर 'capillary action' से फैल जाएगा।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">5. The Push (धक्का देना)</div>
+                            <div class="timeline-desc">जैसे ही खून फैल जाए, spreader को <strong>smoothly (बिना रुके)</strong>,
+                                <strong>quickly (तेज़ी से)</strong>, और <strong>firmly (दबाव के साथ)</strong> slide के अंत
+                                तक 'push' (धक्का) दें। Spreader को slide से न उठाएं।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">6. Drying (सुखाना)</div>
+                            <div class="timeline-desc">Smear को <strong>Air Dry (हवा में सुखाना)</strong> करें। फूँक (blowing)
+                                न मारें (इससे RBCs distort हो जाते हैं)। इसे पंखे के नीचे या 'hair dryer' (cold air) से सुखाया
+                                जा सकता है।</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Controlling Thickness (मोटाई नियंत्रण) 📐</h4>
+                        <p style="margin-bottom: 15px;">Smear की मोटाई 2 चीज़ों से control होती है:</p>
+                        <table class="mini-table">
+                            <thead>
+                                <tr>
+                                    <th>Factor</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Angle (कोण) ⬆️</strong> (e.g. 45°)</td>
+                                    <td>Thick Smear (मोटी)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Angle (कोण) ⬇️</strong> (e.g. 30°)</td>
+                                    <td>Thin Smear (पतली)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Speed (गति) ⬆️</strong> (Fast)</td>
+                                    <td>Thin Smear (पतली)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Speed (गति) ⬇️</strong> (Slow)</td>
+                                    <td>Thick Smear (मोटी)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="info-card grow">
+                        <h4>Common Mistakes (सामान्य गलतियाँ) ❌</h4>
+                        <ul style="list-style-type: '▸'; padding-left: 20px;">
+                            <li><strong>Too Thick (बहुत मोटी):</strong> Angle ज़्यादा था, या Anemia में।</li>
+                            <li><strong>Too Thin (बहुत पतली):</strong> Angle कम था, या Polycythemia में।</li>
+                            <li><strong>Chattering (धारियां):</strong> Spreader गंदा (dirty) या 'chipped' (टूटा हुआ) था, या
+                                'jerky' (रुक-रुक कर) push किया।</li>
+                            <li><strong>Holes (छेद):</strong> Slide 'greasy' (चिकनी) थी या blood में lipid ज़्यादा
+                                (lipemic) था।</li>
+                        </ul>
+                    </div>
+                    <div class="quick-fact">
+                        <strong>PYQ:</strong> Anemia (पतला खून) में angle <strong>बढ़ाना</strong> (45°) चाहिए, और Polycythemia (गाढ़ा
+                        खून) में angle <strong>घटाना</strong> (30°) चाहिए।
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">🖌️ Spreader Slide</div>
+                <div class="footer-tag">📐 30-45° Angle</div>
+                <div class="footer-tag">💨 Air Dry</div>
+                <div class="footer-tag">❌ Common Mistakes</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 34: STAINING METHODS (LEISHMAN/GIEMSA) ==================== -->
+        <section class="slide">
+            <div class="slide-number">34 / 41</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">Staining Methods (Leishman) 🟣</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Leishman's Stain</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">🔬</span>Principle (सिद्धांत)</div>
+                            <ul class="point-list">
+                                <li>यह एक <strong>Romanowsky stain</strong> है (जैसे Giemsa, Wright's)।</li>
+                                <li>यह <strong>Methanol (Fixative)</strong> + <strong>Eosin (Acidic dye)</strong> +
+                                    <strong>Methylene Blue (Basic dye)</strong> का_mixture है।
+                                </li>
+                                <li><strong>Fixation:</strong> Methanol, smear को slide पर fix (चिपका) देता है और cells
+                                    को 'kill' (मार) देता है।</li>
+                                <li><strong>Staining:</strong> Acidic dye (Eosin) basic components (जैसे Hemoglobin,
+                                    Eosinophil granules) को <strong>Red/Pink</strong> रंगता है। Basic dye (Methylene
+                                    Blue) acidic components (जैसे Nucleus, DNA/RNA) को <strong>Blue/Purple</strong> रंगता है।</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h3>Procedure (SOP)</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-title">1. Fixation (फिक्सेशन)</div>
+                            <div class="timeline-desc">Air-dried smear पर Leishman's stain (undiluted) डालें और पूरी slide को cover
+                                करें। <strong>1-2 मिनट</strong> तक इंतज़ार करें। (इस दौरान Methanol अपना काम करता है)।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">2. Dilution & Staining (रंगना)</div>
+                            <div class="timeline-desc">अब, stain के ऊपर <strong>Buffered Water (pH 6.8)</strong> की
+                                'double' (दोगुनी) मात्रा डालें। (e.g. 1 ml stain + 2 ml buffer)। फूँक (blow) मारकर mix करें।
+                                <strong>7-10 मिनट</strong> तक इंतज़ार करें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">3. Washing (धोना)</div>
+                            <div class="timeline-desc">Slide को 'tap water' (नल के पानी) की धीमी धार से धोएं। (Stain को
+                                'डालें' (pour off) नहीं, 'धोएं' (wash off), वरना 'scum' (गंदगी) जम जाएगी)।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">4. Drying (सुखाना)</div>
+                            <div class="timeline-desc">Slide को 'drying rack' पर रखकर हवा में सूखने दें। Blot (पोंछना) नहीं
+                                करना है।</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Giemsa Stain 🔬</h4>
+                        <p style="margin-bottom: 15px;">Giemsa, Leishman's से ज़्यादा 'potent' (शक्तिशाली) stain है।</p>
+                        <ul style="list-style-type: '▸'; padding-left: 20px;">
+                            <li><strong>Use:</strong> Malaria parasites (MP) और Bone marrow slides के लिए
+                                'Gold Standard' है।</li>
+                            <li><strong>Procedure:</strong>
+                                <ul>
+                                    <li>1. Fix with <strong>Methanol</strong> (3-5 min).</li>
+                                    <li>2. Wash.</li>
+                                    <li>3. Stain with <strong>Diluted Giemsa</strong> (1:10 or 1:20) for <strong>20-30
+                                        min</strong>.</li>
+                                    <li>4. Wash & Dry.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="info-card grow">
+                        <h4>Common Staining Problems ❌</h4>
+                        <table class="mini-table">
+                            <thead>
+                                <tr>
+                                    <th>Problem</th>
+                                    <th>Cause</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Too Blue (नीली)</strong></td>
+                                    <td>Staining time ज़्यादा / Buffer pH High</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Too Pink (गुलाबी)</strong></td>
+                                    <td>Staining time कम / Buffer pH Low</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Precipitate (कण)</strong></td>
+                                    <td>Stain filter नहीं किया / Washing ग़लत की</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="quick-fact">
+                        <strong>Viva PYQ:</strong> Buffered water (pH 6.8) क्यों? क्योंकि Eosin (acid) और Methylene Blue (base) को 'ionize' (सक्रिय) होने और 'bind' (जुड़ने) के लिए 'neutral' (तटस्थ) pH की ज़रूरत होती है।
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">🟣 Leishman's Stain</div>
+                <div class="footer-tag">🧪 Romanowsky</div>
+                <div class="footer-tag">🔬 Giemsa (Malaria)</div>
+                <div class="footer-tag">pH 6.8 Buffer</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 35: RBC MORPHOLOGY (SIMPLE CLASSIFICATION) ==================== -->
+        <section class="slide">
+            <div class="slide-number">35 / 41</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">RBC Morphology 🔴</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>1. Size (आकार) - Anisocytosis</h3>
+                    <p style="font-size: 18px; color: var(--text-medium); margin-bottom: 20px; padding: 15px; background: #f9fafb; border-radius: 12px;">
+                       <strong>Normal Size:</strong> 7-8 µm (Lymphocyte के nucleus के बराबर)।
+                    </p>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">⚪</span>Normocytic (नॉर्मोसाइटिक)</div>
+                            <ul class="point-list">
+                                <li>Normal size.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">▫️</span>Microcytic (माइक्रोसाइटिक)</div>
+                            <ul class="point-list">
+                                <li>Small size (< 7 µm).</li>
+                                <li><strong>Seen in:</strong> Iron Deficiency Anemia (IDA), Thalassemia.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">🔵</span>Macrocytic (मैक्रोसाइटिक)</div>
+                            <ul class="point-list">
+                                <li>Large size (> 8 µm).</li>
+                                <li><strong>Seen in:</strong> Megaloblastic Anemia (B12/Folate deficiency), Liver disease.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h3>2. Colour (रंग) - Anisochromia</h3>
+                     <p style="font-size: 18px; color: var(--text-medium); margin-bottom: 20px; padding: 15px; background: #f9fafb; border-radius: 12px;">
+                       <strong>Normal:</strong> 1/3 central pallor (बीच में 1/3 सफ़ेद)।
+                    </p>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">⚪</span>Normochromic (नॉर्मोक्रोमिक)</div>
+                            <ul class="point-list">
+                                <li>Normal color (1/3 pallor).</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">▫️</span>Hypochromic (हाइपोक्रोमिक)</div>
+                            <ul class="point-list">
+                                <li>Pale color (pallor > 1/3).</li>
+                                <li><strong>Seen in:</strong> Iron Deficiency Anemia (IDA), Thalassemia.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">🔵</span>Hyperchromic (हाइपरक्रोमिक)</div>
+                            <ul class="point-list">
+                                <li>No central pallor (पूरी cell डार्क)।</li>
+                                <li><strong>Seen in:</strong> Spherocytosis.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="quick-fact" style="margin-top: 20px;">
+                        <strong>IDA Classic Picture:</strong> <strong>Microcytic, Hypochromic</strong> RBCs.
+                    </div>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>3. Shape (आकृति) - Poikilocytosis</h4>
+                        <table class="mini-table">
+                            <thead>
+                                <tr>
+                                    <th>Shape Name</th>
+                                    <th>Appearance</th>
+                                    <th>Seen In (बीमारी)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Target Cell</strong></td>
+                                    <td>(टारगेट)</td>
+                                    <td>Thalassemia, Liver disease</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Sickle Cell</strong></td>
+                                    <td>(हँसिया)</td>
+                                    <td>Sickle Cell Anemia</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Spherocyte</strong></td>
+                                    <td>(गोल, डार्क)</td>
+                                    <td>Hereditary Spherocytosis</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Ovalocyte</strong></td>
+                                    <td>(अंडाकार)</td>
+                                    <td>Megaloblastic Anemia</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Schistocyte</strong></td>
+                                    <td>(टूटा हुआ)</td>
+                                    <td>Hemolytic Anemia (MAHA)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Teardrop Cell</strong></td>
+                                    <td>(आँसू)</td>
+                                    <td>Myelofibrosis, Thalassemia</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">🔬 Microcytic</div>
+                <div class="footer-tag">🔬 Macrocytic</div>
+                <div class="footer-tag">🔬 Hypochromic</div>
+                <div class="footer-tag">🎯 Target Cell</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 36: WBC IDENTIFICATION (BEGINNER FRIENDLY) ==================== -->
+        <section class="slide">
+            <div class="slide-number">36 / 41</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">WBC Identification ⚪</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Differential Leucocyte Count (DLC)</h3>
+                    <p style="font-size: 18px; color: var(--text-medium); margin-bottom: 20px; padding: 15px; background: #f9fafb; border-radius: 12px;">
+                       PBF में 100 WBCs को गिनना और उन्हें 5 प्रकारों में classify करना।
+                    </p>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">1️⃣</span>Neutrophils (न्यूट्रोफिल)</div>
+                            <ul class="point-list">
+                                <li><strong>Normal: 40 - 70%</strong></li>
+                                <li><strong>Nucleus:</strong> <strong>Multi-lobed (2-5 lobes)</strong>.</li>
+                                <li><strong>Cytoplasm:</strong> Pink (गुलाबी), fine granules (बारीक दाने)।</li>
+                                <li><strong>Increased in:</strong> Bacterial infections (बैक्टीरियल संक्रमण)।</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">2️⃣</span>Lymphocytes (लिम्फोसाइट)</div>
+                            <ul class="point-list">
+                                <li><strong>Normal: 20 - 40%</strong></li>
+                                <li><strong>Nucleus:</strong> <strong>Large, Round (बड़ा, गोल)</strong>, dark purple, (RBC के
+                                    आकार का)।</li>
+                                <li><strong>Cytoplasm:</strong> Scant (बहुत कम), blue (नीला)।</li>
+                                <li><strong>Increased in:</strong> Viral infections (वायरल संक्रमण), TB, Dengue.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">3️⃣</span>Monocytes (मोनोसाइट)</div>
+                            <ul class="point-list">
+                                <li><strong>Normal: 2 - 8%</strong></li>
+                                <li><strong>Nucleus:</strong> <strong>Kidney-shaped (किडनी)</strong> or 'C' shaped.</li>
+                                <li><strong>Cytoplasm:</strong> Abundant (बहुत सारा), 'ground-glass' blue-grey.</li>
+                                <li><strong>Increased in:</strong> Chronic infections (पुरानी बीमारी), Malaria, TB.</li>
+                                <li>(Note: यह <strong>सबसे बड़ी (Largest)</strong> WBC है)।</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">4️⃣</span>Eosinophils (इओसिनोफिल)</div>
+                            <ul class="point-list">
+                                <li><strong>Normal: 1 - 6%</strong></li>
+                                <li><strong>Nucleus:</strong> Bi-lobed (2 lobes), 'headphone' (हेडफोन) जैसा।</li>
+                                <li><strong>Cytoplasm:</strong> Full of <strong>Large, Orange-Red granules</strong> (बड़े,
+                                    नारंगी-लाल दाने)।</li>
+                                <li><strong>Increased in:</strong> <strong>Allergy (एलर्जी)</strong>, Asthma, Parasitic
+                                    infections (कृमि)।</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">5️⃣</span>Basophils (बेसोफिल)</div>
+                            <ul class="point-list">
+                                <li><strong>Normal: 0 - 1%</strong> (सबसे कम)</li>
+                                <li><strong>Nucleus:</strong> 'S' shaped (hidden).</li>
+                                <li><strong>Cytoplasm:</strong> Full of <strong>Large, Deep Blue-Purple granules</strong> (बड़े,
+                                    गहरे नीले दाने), जो nucleus को ढक लेते हैं।</li>
+                                <li><strong>Increased in:</strong> Allergic reactions, CML (एक प्रकार का ब्लड कैंसर)।</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>WBC Identification Guide 📖</h4>
+                        <table class="mini-table">
+                            <thead>
+                                <tr>
+                                    <th>WBC</th>
+                                    <th>Key Feature (पहचान)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Neutrophil</strong></td>
+                                    <td>Multi-lobed Nucleus (2-5)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Lymphocyte</strong></td>
+                                    <td>Large Round Nucleus (कम cytoplasm)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Monocyte</strong></td>
+                                    <td>Kidney-shaped Nucleus (Largest)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Eosinophil</strong></td>
+                                    <td>Orange-Red Granules (Headphone)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Basophil</strong></td>
+                                    <td>Deep Blue Granules (Nucleus hidden)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="info-card grow">
+                        <h4>How to do DLC? (DLC कैसे करें?)</h4>
+                        <ul style="list-style-type: '▸'; padding-left: 20px;">
+                            <li>Slide को 'Body' (ideal zone) में 100x (Oil immersion) पर देखें।</li>
+                            <li>'Battlement' (ज़िग-ज़ैग) pattern में move करें।</li>
+                            <li>जो भी WBC दिखे, उसे identify (पहचानें) करें।</li>
+                            <li>'DLC counter' (काउंटर) पर 100 cells तक count करें।</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">⚪ Neutrophil (Bacterial)</div>
+                <div class="footer-tag">⚪ Lymphocyte (Viral)</div>
+                <div class="footer-tag">⚪ Eosinophil (Allergy)</div>
+                <div class="footer-tag">🔬 DLC</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 37: PLATELET MORPHOLOGY ==================== -->
+        <section class="slide">
+            <div class="slide-number">37 / 41</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">Platelet Morphology 🔬</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Platelet Estimation (अनुमान)</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">🔬</span>PBF से अनुमान (Estimation from PBF)</div>
+                            <ul class="point-list">
+                                <li>Platelet count (मशीन/manual) को PBF से confirm करना ज़रूरी है।</li>
+                                <li><strong>Method:</strong> 100x (Oil immersion) में 'ideal zone' में 5-10 fields
+                                    देखें।</li>
+                                <li><strong>Average (औसत):</strong> 1 field में 8-20 platelets 'adequate' (पर्याप्त) माने
+                                    जाते हैं।</li>
+                                <li><strong>Rough Formula:</strong> (Average platelets per field) x 20,000 = Estimated
+                                    Count.</li>
+                                <li>(e.g. 1 field में 10 platelets = 10 x 20,000 = 2,00,000)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h3>Morphology (आकार-प्रकार)</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">✅</span>Normal Platelets</div>
+                            <ul class="point-list">
+                                <li>Small (छोटे), deep purple (गहरे बैंगनी) dots।</li>
+                                <li>RBC के 1/4 आकार के।</li>
+                                <li>Slide पर समान रूप से वितरित (distributed)।</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">📈</span>Increased (Thrombocytosis)</div>
+                            <ul class="point-list">
+                                <li>Oil field में 25-30 से ज़्यादा platelets दिखना।</li>
+                                <li><strong>Seen in:</strong> Infection, Iron deficiency anemia (IDA).</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">📉</span>Decreased (Thrombocytopenia)</div>
+                            <ul class="point-list">
+                                <li>Oil field में 5-7 से कम platelets दिखना।</li>
+                                <li><strong>Seen in:</strong> Dengue, ITP, Aplastic Anemia.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">뭉</span>Clumping (गुच्छे बनाना)</div>
+                            <ul class="point-list">
+                                <li>Platelets का आपस में चिपक जाना।</li>
+                                <li>यह PBF के 'feather edge' (किनारे) पर आम है।</li>
+                                <li><strong>Importance:</strong> अगर clumping ज़्यादा है, तो machine 'falsely low'
+                                    (झूठा कम) count दिखाएगी। इसे <strong>Pseudothrombocytopenia</strong> कहते हैं।</li>
+                            </ul>
+                        </li>
+                         <li>
+                            <div class="point-title"><span class="icon">🔵</span>Giant Platelets (बड़े प्लेटलेट)</div>
+                            <ul class="point-list">
+                                <li>Platelets का आकार RBC के बराबर या बड़ा होना।</li>
+                                <li><strong>Seen in:</strong> ITP, Bernard-Soulier syndrome.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Pseudothrombocytopenia (झूठी कमी) ⚠️</h4>
+                        <p style="margin-bottom: 15px;">यह एक lab artifact (लैब त्रुटि) है, बीमारी नहीं।</p>
+                        <ul style="list-style-type: '▸'; padding-left: 20px;">
+                            <li><strong>Cause:</strong> EDTA vial (Purple top) कुछ लोगों में platelets को clump (गुच्छा)
+                                बना देता है।</li>
+                            <li><strong>Machine:</strong> Machine इन 'clumps' को नहीं गिन पाती और 'Low Platelet' की
+                                report देती है।</li>
+                            <li><strong>Solution:</strong> PBF slide देखें। अगर clumping दिखे, तो <strong>Citrate
+                                (Blue top)</strong> vial में 're-sample' (दोबारा सैंपल) लें।</li>
+                        </ul>
+                    </div>
+                    <div class="info-card grow">
+                        <h4>Dengue vs ITP</h4>
+                        <table class="mini-table">
+                            <thead>
+                                <tr>
+                                    <th>Condition</th>
+                                    <th>Platelet Count</th>
+                                    <th>Platelet Size</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Dengue</strong></td>
+                                    <td>Low (कम)</td>
+                                    <td>Normal (सामान्य)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>ITP</strong></td>
+                                    <td>Very Low (बहुत कम)</td>
+                                    <td><strong>Giant (बड़े)</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">🔬 Estimation</div>
+                <div class="footer-tag">📉 Thrombocytopenia</div>
+                <div class="footer-tag">뭉 Clumping</div>
+                <div class="footer-tag">⚠️ Pseudothrombocytopenia</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 38: BUFFY COAT & SPECIAL CELLS ==================== -->
+        <section class="slide">
+            <div class="slide-number">38 / 41</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">Buffy Coat & Special Cells 🔬</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Buffy Coat</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon"> lapisan</span>What is Buffy Coat? (बफी कोट)</div>
+                            <ul class="point-list">
+                                <li>जब EDTA blood को centrifuge (या रात भर settle) किया जाता है, तो 3 परतें बनती हैं:</li>
+                                <li><strong>Bottom:</strong> Red Blood Cells (RBCs)</li>
+                                <li><strong>Top:</strong> Plasma (प्लाज़्मा)</li>
+                                <li><strong>Middle:</strong> <strong>Buffy Coat</strong> (एक पतली, सफ़ेद परत)</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon"> composition</span>Composition (संरचना)</div>
+                            <ul class="point-list">
+                                <li>Buffy coat <strong>WBCs (श्वेत रक्त कणिकाओं)</strong> और <strong>Platelets (प्लेटलेट्स)</strong>
+                                    से बना होता है।</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon"> use</span>Use (उपयोग)</div>
+                            <ul class="point-list">
+                                <li><strong>Leukopenia (WBC कम होना):</strong> जब WBC count बहुत कम (e.g. < 1000) होता है, तो
+                                    PBF में WBCs ढूँढना मुश्किल होता है।</li>
+                                <li><strong>Solution:</strong> 'Buffy Coat Smear' (बफी कोट स्मीयर) बनाया जाता है। यह WBCs
+                                    को 'concentrate' (गाढ़ा) कर देता है।</li>
+                                <li><strong>Parasites:</strong> Malaria (जब parasitemia कम हो) और Filaria (माइक्रोफाइलेरिया) ढूँढने में मदद करता है।</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h3>Special Cells (विशेष कोशिकाएं)</h3>
+                     <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">🚨</span>Blast Cells (ब्लास्ट सेल्स)</div>
+                            <ul class="point-list">
+                                <li>ये 'Immature' (अपरिपक्व) WBCs होते हैं।</li>
+                                <li><strong>Normal Blood:</strong> 0% (बिल्कुल नहीं दिखने चाहिए)।</li>
+                                <li><strong>Appearance:</strong> Large size (बड़े), high N:C ratio (बड़ा nucleus, कम
+                                    cytoplasm), fine chromatin (बारीक क्रोमैटिन), prominent nucleoli (स्पष्ट न्यूक्लियोली)।</li>
+                                <li><strong>Seen in:</strong> <strong>Acute Leukemia (ब्लड कैंसर)</strong>. PBF में
+                                    Blasts दिखना एक 'Panic Alert' (आपातकालीन सूचना) है।</li>
+                            </ul>
+                        </li>
+                         <li>
+                            <div class="point-title"><span class="icon">🦟</span>Malaria Parasites (मलेरिया परजीवी)</div>
+                             <ul class="point-list">
+                                 <li>P. vivax और P. falciparum भारत में आम हैं।</li>
+                                 <li><strong>Ring Form (अंगूठी):</strong> RBC के अंदर एक नीली 'ring' (अंगूठी) और 'chromatin dot' (बिंदु)।</li>
+                                 <li><strong>Gametocyte (गेमेटोसाइट):</strong> Falciparum में 'banana' (केले) के आकार का, Vivax में 'round' (गोल)।</li>
+                                 <li><strong>Schizont (शाइज़ोंट):</strong> RBC के अंदर कई 'merozoites' (खंड)।</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Hematocrit (PCV) Layers 🩸</h4>
+                        <p style="margin-bottom: 15px;">Centrifuged blood (PCV tube) में 3 परतें:</p>
+                        <table class="mini-table">
+                            <thead>
+                                <tr>
+                                    <th>Layer</th>
+                                    <th>Content</th>
+                                    <th>% (Approx)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Top (Plasma)</strong></td>
+                                    <td>Water, Proteins</td>
+                                    <td>55%</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Middle (Buffy Coat)</strong></td>
+                                    <td>WBCs, Platelets</td>
+                                    <td>< 1%</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Bottom (RBC)</strong></td>
+                                    <td>Packed RBCs</td>
+                                    <td>45% (PCV/Hct)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="info-card grow">
+                        <h4>Other Abnormal Cells 🔬</h4>
+                         <ul style="list-style-type: '▸'; padding-left: 20px;">
+                            <li><strong>Atypical Lymphocytes:</strong> Large, 'skirt-like' cytoplasm (Lymphocytes जो Monocytes जैसे दिखें)।
+                                <ul><li>Seen in: <strong>Dengue</strong>, Infectious Mononucleosis.</li></ul>
+                            </li>
+                             <li><strong>Nucleated RBCs (nRBCs):</strong> RBCs जिनमें nucleus हो (Normal RBC में नहीं होता)।
+                                <ul><li>Seen in: Newborns (Normal), Thalassemia, Severe Anemia.</li></ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag"> lapisan Buffy Coat</div>
+                <div class="footer-tag">🚨 Blast Cells (Leukemia)</div>
+                <div class="footer-tag">🦟 Malaria Parasite</div>
+                <div class="footer-tag">🔬 Atypical Lymphs (Dengue)</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 39: PBF REPORTING FORMAT ==================== -->
+        <section class="slide">
+            <div class="slide-number">39 / 41</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">PBF Reporting Format 📝</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Structure of a Standard Report</h3>
+                    <p style="font-size: 18px; color: var(--text-medium); margin-bottom: 20px; padding: 15px; background: #f9fafb; border-radius: 12px;">
+                       एक PBF report में 3 main components (RBC, WBC, Platelet) और एक 'Impression' (निष्कर्ष) होना चाहिए।
+                    </p>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">🔴</span>1. RBC Series (RBC श्रृंखला)</div>
+                            <ul class="point-list">
+                                <li><strong>Size:</strong> Normocytic (सामान्य), Microcytic (छोटी), Macrocytic (बड़ी),
+                                    Anisocytosis (मिश्रित)।</li>
+                                <li><strong>Colour:</strong> Normochromic (सामान्य), Hypochromic (फीकी), Anisochromia (मिश्रित)।</li>
+                                <li><strong>Shape (Poikilocytosis):</strong> 'Mild', 'Moderate', 'Marked' (कम, मध्यम, ज़्यादा)
+                                    - और 'types' (प्रकार) लिखें (e.g. Target cells, Sickle cells)।</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">⚪</span>2. WBC Series (WBC श्रृंखला)</div>
+                            <ul class="point-list">
+                                <li><strong>Total Count (TLC):</strong> (Count) e.g. 8,000/cu.mm (Leukopenia/Normal/Leukocytosis).</li>
+                                <li><strong>Differential Count (DLC):</strong> 100 cells का %
+                                    <ul>
+                                        <li>Neutrophils: %</li>
+                                        <li>Lymphocytes: %</li>
+                                        <li>Monocytes: %</li>
+                                        <li>Eosinophils: %</li>
+                                        <li>Basophils: %</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Abnormal Cells:</strong> "Atypical lymphocytes seen" (देखे गए) or "Blasts seen"
+                                    (देखे गए) or "No abnormal cells seen" (नहीं देखे गए)।</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">🔬</span>3. Platelet Series (प्लेटलेट श्रृंखला)</div>
+                            <ul class="point-list">
+                                <li><strong>Count:</strong> <strong>Adequate (पर्याप्त)</strong>, Reduced (कम), or Increased (ज़्यादा) - on smear.</li>
+                                <li><strong>Clumps:</strong> "Seen" (देखे गए) or "Not seen" (नहीं देखे गए)।</li>
+                                <li><strong>Morphology:</strong> "Normal morphology" or "Giant platelets seen".</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">💡</span>4. Impression (निष्कर्ष)</div>
+                            <ul class="point-list">
+                                <li>यह 1-2 line का summary (सारांश) है।</li>
+                                <li>e.g. "Microcytic, hypochromic anemia."</li>
+                                <li>e.g. "Thrombocytopenia with atypical lymphocytes."</li>
+                                <li>e.g. "Normal study."</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Sample Report 1: Normal 📝</h4>
+                        <ul style="list-style-type: '▸'; padding-left: 20px; line-height: 1.8;">
+                            <li><strong>RBCs:</strong> Normocytic, Normochromic.</li>
+                            <li><strong>WBCs:</strong> TLC & DLC are within normal limits. No abnormal cells seen.</li>
+                            <li><strong>Platelets:</strong> Adequate.</li>
+                            <li><strong>Impression:</strong> Normal study.</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>Sample Report 2: IDA 📝</h4>
+                         <ul style="list-style-type: '▸'; padding-left: 20px; line-height: 1.8;">
+                            <li><strong>RBCs:</strong> Microcytic, Hypochromic. Anisopoikilocytosis seen.</li>
+                            <li><strong>WBCs:</strong> TLC & DLC are within normal limits.</li>
+                            <li><strong>Platelets:</strong> Adequate (or increased).</li>
+                            <li><strong>Impression:</strong> Blood picture suggestive of <strong>Iron Deficiency Anemia</strong>.</li>
+                        </ul>
+                    </div>
+                    <div class="info-card grow">
+                        <h4>Sample Report 3: Dengue 📝</h4>
+                         <ul style="list-style-type: '▸'; padding-left: 20px; line-height: 1.8;">
+                            <li><strong>RBCs:</strong> Normocytic, Normochromic.</li>
+                            <li><strong>WBCs:</strong> Leukopenia (TLC: 2,500). Relative Lymphocytosis (L: 55%). <strong>Atypical lymphocytes are seen</strong>.</li>
+                            <li><strong>Platelets:</strong> Reduced (कम).</li>
+                            <li><strong>Impression:</strong> Blood picture suggestive of <strong>Viral Fever, possibly Dengue</strong>.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">📝 Reporting</div>
+                <div class="footer-tag">🔴 RBC Comments</div>
+                <div class="footer-tag">⚪ WBC Comments</div>
+                <div class="footer-tag">💡 Impression</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 40: HEMATOLOGY SPOTTERS + VIVA BOOSTERS ==================== -->
+        <section class="slide">
+            <div class="slide-number">40 / 41</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">Spotters & Viva Boosters 🎙️</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Practical Spotters (स्पॉटर्स)</h3>
+                    <p style="font-size: 18px; color: var(--text-medium); margin-bottom: 20px; padding: 15px; background: #f9fafb; border-radius: 12px;">
+                       आपको ये चीज़ें पहचाननी (identify) होंगी:
+                    </p>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">1️⃣</span>Hemocytometer (हीमोसाइटोमीटर)</div>
+                            <ul class="point-list">
+                                <li><strong>पहचान:</strong> Thick glass slide with 'H' shape moat.</li>
+                                <li><strong>Use:</strong> Manual cell counting (RBC, WBC, Platelet).</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">2️⃣</span>WBC Pipette (WBC पिपेट)</div>
+                            <ul class="point-list">
+                                <li><strong>पहचान:</strong> <strong>White bead (सफ़ेद मोती)</strong>. Marks: 0.5, 1, 11.</li>
+                                <li><strong>Use:</strong> WBC (1:20) and Platelet (1:20) counts.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">3️⃣</span>RBC Pipette (RBC पिपेट)</div>
+                            <ul class="point-list">
+                                <li><strong>पहचान:</strong> <strong>Red bead (लाल मोती)</strong>. Marks: 0.5, 1, 101.</li>
+                                <li><strong>Use:</strong> RBC count (1:200).</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">4️⃣</span>ESR Tube (Westergren's)</div>
+                            <ul class="point-list">
+                                <li><strong>पहचान:</strong> Long tube (300 mm), open at both ends. Marks 0 to 200 (top to
+                                    bottom).</li>
+                                <li><strong>Use:</strong> ESR measurement.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">5️⃣</span>PCV Tube (Wintrobe's / Capillary)</div>
+                            <ul class="point-list">
+                                <li><strong>पहचान:</strong> Small, thin tube (Capillary) or Wintrobe's (110 mm,
+                                    bottom-sealed).</li>
+                                <li><strong>Use:</strong> Hematocrit (PCV) measurement.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">6️⃣</span>Sahli's Set (साहली सेट)</div>
+                            <ul class="point-list">
+                                <li><strong>पहचान:</strong> Comparator (box), Pipette (20 µL), Tube.</li>
+                                <li><strong>Use:</strong> Hemoglobin (Hb) estimation (Acid Hematin method).</li>
+                            </ul>
+                        </li>
+                         <li>
+                            <div class="point-title"><span class="icon">7️⃣</span>Stain Bottles</div>
+                            <ul class="point-list">
+                                <li><strong>Leishman's Stain</strong> (Dark purple), <strong>Turk's Fluid</strong> (Violet),
+                                    <strong>Hayem's Fluid</strong> (Clear).</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="side-column">
+                    <div class="info-card grow">
+                        <h4>Top 20 Viva-Ready Questions 🎙️</h4>
+                        <ul style="list-style-type: '▸'; padding-left: 20px; line-height: 1.8;">
+                            <li>1. Chamber की depth कितनी है? (0.1 mm)</li>
+                            <li>2. RBC fluid 'isotonic' क्यों है? (Lysis रोकने के लिए)</li>
+                            <li>3. WBC fluid 'hypotonic' क्यों है? (RBC lyse करने के लिए)</li>
+                            <li>4. Turk's fluid के components? (Acetic Acid, Gentian Violet)</li>
+                            <li>5. RBC calculation factor? (N x 10,000)</li>
+                            <li>6. WBC calculation factor? (N x 50)</li>
+                            <li>7. Platelet calculation factor? (N x 200)</li>
+                            <li>8. TL/BR rule क्या है? (Double counting रोकने के लिए)</li>
+                            <li>9. Leukocytosis क्या है? (WBC > 11,000)</li>
+                            <li>10. Dengue में क्या कम होता है? (Platelets and WBCs)</li>
+                            <li>11. PBF smear का angle? (30-45°)</li>
+                            <li>12. Leishman's stain का principle? (Romanowsky)</li>
+                            <li>13. Buffer का pH? (6.8)</li>
+                            <li>14. Eosinophil कब बढ़ते हैं? (Allergy)</li>
+                            <li>15. Malaria parasite का नाम? (P. vivax, P. falciparum)</li>
+                            <li>16. Blast cell क्या है? (Immature cell - Leukemia)</li>
+                            <li>17. Buffy coat में क्या होता है? (WBC + Platelets)</li>
+                            <li>18. RBC pipette में red bead क्यों? (Mixing + Identification)</li>
+                            <li>19. nRBC correction कब करते हैं? (>5 nRBCs)</li>
+                            <li>20. Pseudothrombocytopenia क्या है? (EDTA clumping)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">🎙️ Viva Voce</div>
+                <div class="footer-tag">🔬 Spotters</div>
+                <div class="footer-tag">🧪 Pipettes</div>
+                <div class="footer-tag">🏆 All the Best!</div>
+            </div>
+        </section>
+        
+        <!-- ==================== SLIDE 41: FINAL WORDS (REPLICATED FROM DEMO) ==================== -->
+        <section class="slide final-slide">
+            <div class="slide-number">41 / 41</div>
+            <div class="final-slide-content">
+                <h2>Welcome to Prepe</h2>
+                <h3>अपनी तैयारी को नई उड़ान दें!</h3>
+                <p>हमारे अन्य बेहतरीन कोर्सेस भी देखें।</p>
+                
+                <div class="final-slide-grid">
+                    <!-- Box 1: Offer -->
+                    <a href="https://offer.prepeai.in" class="final-slide-box" target="_blank" rel="noopener noreferrer">
+                        <div class="icon offer">
+                            <!-- SVG for Offer -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+                        </div>
+                        <h4>FLAT 50% OFF</h4>
+                        <span>Limited Time Offer</span>
+                    </a>
+                    
+                    <!-- Box 2: Courses -->
+                    <a href="https://shop.prepeai.in" class="final-slide-box" target="_blank" rel="noopener noreferrer">
+                        <div class="icon courses">
+                            <!-- SVG for Courses -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                        </div>
+                        <h4>Explore More Courses</h4>
+                        <span>Expand Your Knowledge</span>
+                    </a>
+                    
+                    <!-- Box 3: Instagram -->
+                    <a href="https://insta.prepeai.in" class="final-slide-box insta-box" target="_blank" rel="noopener noreferrer">
+                        <div class="icon insta">
+                             <!-- SVG for Instagram -->
+                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </div>
+                        <h4>Follow on Instagram</h4>
+                        <span>@prepe.ai</span>
+                    </a>
+                </div>
+                
+                <div class="final-slide-divider"></div>
+                
+                <a href="https://www.prepeai.in" class="final-slide-button" target="_blank" rel="noopener noreferrer">
+                    Visit Our Website
+                </a>
+            </div>
+        </section>
+
+    </main>
 </body>
 </html>
