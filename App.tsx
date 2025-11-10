@@ -15,9 +15,9 @@ const MenuIcon = () => (
 );
 
 const pages = [
-  { name: 'Document 1', path: './page1.html' },
-  { name: 'Document 2', path: './page2.html' },
-  { name: 'Document 3', path: './page3.html' },
+  { name: 'Document 1', path: '/page1.html' },
+  { name: 'Document 2', path: '/page2.html' },
+  { name: 'Document 3', path: '/page3.html' },
 ];
 
 const App: React.FC = () => {
