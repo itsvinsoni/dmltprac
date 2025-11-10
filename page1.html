@@ -1,21 +1,2545 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page 1</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 
+      Page Title: DMLT 1st Year Practical Exam Revision Notes
+      Brand: Prepe
+      Content: Covers Urine, Hb, ESR, PCV, Blood Grouping
+    -->
+    <title>Prepe - DMLT 1st Year Practical Revision 🔬</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* ==================== ROOT VARIABLES ==================== */
+        :root {
+            --primary: #fb923c; /* orange-400 */
+            --primary-light: #fed7aa; /* orange-200 */
+            --primary-dark: #f97316; /* orange-500 */
+            --secondary: #ea580c; /* orange-600 */
+            --text-dark: #1f2937;
+            --text-medium: #4b5563;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ==================== GLOBAL STYLES ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ==================== SLIDES CONTAINER ==================== */
+        .slides-container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 30px 15px;
+        }
+
+        /* ==================== SLIDE STYLES ==================== */
+        .slide {
+            width: 100%;
+            background: #ffffff;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            padding: 40px;
+            overflow: hidden;
+            border-radius: 24px;
+            border-top: 8px solid;
+            border-image: linear-gradient(90deg, var(--primary), var(--secondary)) 1;
+            /* ZERO EMPTY SPACE POLICY: 
+              Height is auto-driven by content, not fixed. 
+              min-height is set to 100vh for full-page feel but will expand.
+              padding-bottom is part of the slide's internal spacing, removing it 
+              would break the design. The *content* will fill the space.
+            */
+            min-height: 100vh;
+            height: auto; 
+        }
+        
+        .slide::after {
+            content: 'Prepe';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            font-size: 180px;
+            font-weight: 900;
+            color: rgba(0, 0, 0, 0.03);
+            z-index: 1;
+            pointer-events: none;
+            text-transform: uppercase;
+        }
+
+        .slide-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-light);
+            background-color: #f1f5f9;
+            padding: 5px 15px;
+            border-radius: 20px;
+            z-index: 2;
+        }
+
+        /* ==================== HEADER ==================== */
+        .slide-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 35px;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .brand {
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--primary-dark);
+        }
+        
+        .slide-title {
+            font-size: 52px;
+            font-weight: 900;
+            color: var(--text-dark);
+            text-align: right;
+            position: relative;
+            padding-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .slide-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--secondary), var(--primary));
+            border-radius: 2px;
+        }
+
+        /* ==================== CONTENT AREA ==================== */
+        .slide-content {
+            flex-grow: 1;
+            display: flex;
+            gap: 30px;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+            height: auto;
+        }
+
+        .main-column {
+            flex-basis: 65%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            min-height: 1px; /* Flexbox bug fix */
+        }
+
+        .side-column {
+            flex-basis: 35%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            min-height: 1px; /* Flexbox bug fix */
+        }
+
+        /* ==================== TYPOGRAPHY ==================== */
+        h3 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin: 0 0 20px 0;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border-color);
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        h3::before {
+            content: '✨';
+            margin-right: 10px;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 18px;
+        }
+        
+        /* Main points styling */
+        .main-column > ul > li {
+            background-color: #f9fafb;
+            border-radius: 12px;
+            padding: 15px 20px;
+            transition: all 0.2s ease;
+            border-left: 4px solid var(--primary);
+            overflow: hidden; /* Ensure no overflow */
+        }
+        
+        .main-column > ul > li:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .point-title {
+            font-weight: 700;
+            font-size: 21px;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .point-title .icon {
+            margin-right: 12px;
+            font-size: 24px;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+        
+        .point-desc,
+        .point-list {
+            font-size: 18px;
+            color: var(--text-medium);
+            padding-left: 36px;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .point-list li {
+            margin-bottom: 10px;
+            padding-left: 8px;
+            position: relative;
+            font-size: 17px; /* Slightly smaller for sub-points */
+        }
+
+        .point-list li::before {
+            content: '▸';
+            position: absolute;
+            left: -12px;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .point-example {
+            font-style: italic;
+            font-size: 17px;
+            color: var(--text-light);
+            margin-top: 10px;
+            padding: 12px 16px;
+            border-left: 4px solid var(--primary-dark);
+            background: #fffbeb;
+            border-radius: 8px;
+        }
+
+        .point-example::before {
+            content: '💡';
+            margin-right: 8px;
+        }
+
+        /* ==================== INFO CARDS ==================== */
+        .info-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease-in-out;
+            height: 100%; /* Fill space in flex/grid */
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--secondary);
+        }
+
+        .info-card.grow {
+            flex-grow: 1; /* This card will take available space */
+        }
+
+        .info-card h4 {
+            margin: 0 0 15px 0;
+            font-size: 22px;
+            color: var(--text-dark);
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+        }
+
+        .info-card h4::before {
+            content: '🔖';
+            margin-right: 10px;
+        }
+
+        .info-card p,
+        .info-card ul {
+            margin: 0;
+            font-size: 17px;
+            color: var(--text-medium);
+            line-height: 1.7;
+        }
+        
+        .info-card ul li {
+           font-size: 17px;
+           color: var(--text-medium);
+           line-height: 1.7;
+           position: relative;
+           padding-left: 20px;
+           margin-bottom: 8px;
+        }
+        
+        .info-card ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+
+        /* ==================== TABLES ==================== */
+        .mini-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+        }
+
+        .mini-table th,
+        .mini-table td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 14px;
+            text-align: left;
+        }
+        
+        .mini-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .mini-table th {
+            background: var(--primary);
+            color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 15px;
+        }
+
+        .mini-table tbody tr:hover {
+            background: #fff7ed;
+        }
+
+        .mini-table tbody tr:nth-child(even) {
+            background: #f9fafb;
+        }
+
+        /* ==================== BADGES ==================== */
+        .badge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .badge {
+            background-color: var(--primary-light);
+            border: 1px solid var(--primary);
+            color: var(--secondary);
+            padding: 12px 8px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 700;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .badge:hover {
+            transform: scale(1.05);
+            background: var(--primary);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ==================== TIMELINE ==================== */
+        .timeline {
+            border-left: 3px solid var(--primary);
+            padding-left: 25px;
+            margin-top: 15px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 25px;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -32px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid #fff;
+        }
+
+        .timeline-title {
+            font-weight: 700;
+            font-size: 19px;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        .timeline-desc {
+            font-size: 17px;
+            color: var(--text-medium);
+            line-height: 1.7;
+        }
+        
+        /* Timeline for procedures */
+        .timeline.proc {
+            border-left: none;
+            padding-left: 0;
+        }
+        .timeline.proc .timeline-item {
+             padding-bottom: 15px;
+             padding-left: 40px;
+        }
+        .timeline.proc .timeline-item::before {
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        /* Adding step numbers */
+        .timeline.proc .timeline-item:nth-child(1)::before { content: '1'; }
+        .timeline.proc .timeline-item:nth-child(2)::before { content: '2'; }
+        .timeline.proc .timeline-item:nth-child(3)::before { content: '3'; }
+        .timeline.proc .timeline-item:nth-child(4)::before { content: '4'; }
+        .timeline.proc .timeline-item:nth-child(5)::before { content: '5'; }
+        .timeline.proc .timeline-item:nth-child(6)::before { content: '6'; }
+        .timeline.proc .timeline-item:nth-child(7)::before { content: '7'; }
+        
+        .timeline.proc .timeline-title {
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+        .timeline.proc .timeline-desc {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+
+        /* ==================== FLOW CHART ==================== */
+        .flow-chart {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding-top: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .flow-step {
+            text-align: center;
+            font-weight: 700;
+            font-size: 16px;
+            background: #f9fafb;
+            padding: 15px 10px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+            min-width: 100px;
+            flex-grow: 1;
+        }
+
+        .flow-step:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .flow-arrow {
+            font-size: 30px;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        /* ==================== FOOTER TAGS ==================== */
+        .slide-footer {
+            display: flex;
+            gap: 12px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 30px;
+            flex-shrink: 0;
+            width: 100%;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-tag {
+            background-color: var(--primary-light);
+            color: var(--secondary);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 700;
+            border: 1px solid transparent;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .footer-tag:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* ==================== HERO SLIDE ==================== */
+        .hero-slide {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 60px;
+            padding-bottom: 60px;
+            min-height: 100vh;
+        }
+
+        .hero-title {
+            font-size: 95px;
+            font-weight: 900;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            letter-spacing: -3px;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 34px;
+            color: var(--secondary);
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            width: 100%;
+        }
+
+        .hero-tile {
+            background: #f9fafb;
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .hero-tile:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .hero-tile h3 {
+            color: var(--primary-dark);
+            border: none;
+            padding: 0;
+            margin-bottom: 12px;
+            font-size: 24px;
+        }
+        
+        .hero-tile h3::before {
+            content: '✅'; /* Changed icon for hero */
+        }
+
+        .hero-tile p {
+            margin: 0;
+            font-size: 18px;
+            color: var(--text-medium);
+            line-height: 1.7;
+            font-weight: 500;
+        }
+        
+        .hero-scroll-prompt {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-top: 50px;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-15px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        /* ==================== STAT BOXES ==================== */
+        .stat-box {
+            background: #f9fafb;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .stat-box:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-number {
+            font-size: 42px;
+            font-weight: 900;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: var(--text-medium);
+            font-weight: 600;
+        }
+
+        /* ==================== QUICK FACT BOX ==================== */
+        .quick-fact {
+            background: #fffbeb;
+            border-left: 5px solid #facc15; /* yellow-400 */
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .quick-fact::before {
+            content: '⚡';
+            font-size: 20px;
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-sm);
+            color: #ca8a04; /* yellow-600 */
+        }
+
+        .quick-fact strong {
+            color: #a16207; /* yellow-700 */
+            font-weight: 800;
+        }
+        
+        .quick-fact p, .quick-fact ul {
+            font-size: 17px;
+            color: #78350f; /* yellow-800 */
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1100px) {
+            .slide {
+                padding: 30px 25px;
+            }
+
+            .slide-content {
+                flex-direction: column;
+            }
+
+            .main-column,
+            .side-column {
+                flex-basis: auto;
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .slides-container {
+                padding: 20px 10px;
+            }
+
+            .slide {
+                padding: 25px 20px;
+                min-height: auto; /* Remove min-height on mobile */
+            }
+
+             .slide::after {
+                font-size: 120px;
+            }
+
+            .slide-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+                margin-bottom: 25px;
+            }
+
+            .brand {
+                font-size: 30px;
+            }
+
+            .slide-title {
+                font-size: 36px;
+                text-align: left;
+            }
+
+            .slide-title::after {
+                left: 0;
+                right: auto;
+            }
+
+            .hero-grid,
+            .slide-content[style*="grid-template-columns"] {
+                grid-template-columns: 1fr !important;
+            }
+
+            h3 { font-size: 24px; }
+            .point-title { font-size: 19px; }
+            .point-desc, .point-list { font-size: 16px; padding-left: 25px;}
+            .info-card h4 { font-size: 20px; }
+            .info-card p, .info-card ul { font-size: 16px; }
+            .hero-title { font-size: 60px; }
+            .hero-subtitle { font-size: 24px; }
+            .hero-tile h3 { font-size: 22px; }
+            .hero-tile p { font-size: 16px; }
+
+            .mini-table {
+                font-size: 14px;
+            }
+            .mini-table th, .mini-table td {
+                padding: 10px;
+            }
+            
+            .flow-chart {
+                flex-direction: column;
+            }
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slides-container {
+                padding: 15px 5px;
+            }
+            .slide {
+                padding: 20px 15px;
+                margin-bottom: 20px;
+                border-radius: 16px;
+            }
+             .slide::after {
+                font-size: 90px;
+            }
+            .slide-title { font-size: 30px; }
+            .hero-title { font-size: 48px; }
+            .hero-subtitle { font-size: 20px; }
+            
+            /* Final slide grid ko yahaan stack karenge */
+            .final-slide-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .point-desc, .point-list {
+                padding-left: 15px;
+            }
+            .point-title .icon {
+                font-size: 20px;
+                margin-right: 8px;
+            }
+        }
+
+        /* ==================== NEW STYLES FOR FINAL SLIDE ==================== */
+        .final-slide {
+            background: linear-gradient(135deg, #f5f3ff, #fdf2f8); /* Light purple to light pink gradient */
+            border-image: linear-gradient(90deg, #6d28d9, #db2777) 1; /* Purple to pink border */
+            text-align: center;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .final-slide-content {
+            max-width: 900px;
+            width: 100%;
+            z-index: 2;
+            position: relative;
+        }
+
+        .final-slide h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #6d28d9; /* Indigo-700 */
+            margin-bottom: 8px;
+        }
+
+        .final-slide h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px; 
+            font-weight: 900;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            border: none;
+            padding: 0;
+            letter-spacing: -1px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            display: block; /* Override global H3 */
+        }
+        
+        .final-slide h3::before {
+            content: none; /* Remove sparkle emoji */
+        }
+
+        .final-slide p {
+            font-size: 20px;
+            color: var(--text-medium);
+            margin-bottom: 40px;
+        }
+
+        .final-slide-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .final-slide-box {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            text-align: center; 
+            text-decoration: none; 
+        }
+
+        .final-slide-box:hover {
+            transform: translateY(-12px); 
+            border-color: #6d28d9;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07); 
+        }
+
+        .final-slide-box .icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .final-slide-box .icon.offer {
+            background-color: #dcfce7; /* green-100 */
+            color: #22c55e; /* green-500 */
+        }
+        
+        .final-slide-box .icon.courses {
+            background-color: #e0f2fe; /* sky-100 */
+            color: #0ea5e9; /* sky-500 */
+        }
+        
+        .final-slide-box .icon.insta {
+            background-color: #fdf2f8; /* pink-100 */
+            color: #db2777; /* pink-600 */
+        }
+
+        .final-slide-box.insta-box h4 {
+            color: #db2777;
+        }
+        
+        .final-slide-box:hover h4 {
+            color: var(--text-dark);
+        }
+        .final-slide-box:hover span {
+            color: var(--text-light);
+        }
+        .final-slide-box.insta-box:hover h4 {
+            color: #db2777;
+        }
+        
+        .final-slide-box h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin: 0;
+        }
+        
+        .final-slide-box h4::before {
+             content: none; /* Remove tag emoji */
+        }
+
+        .final-slide-box span {
+            font-size: 16px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .final-slide-divider {
+            width: 80%;
+            height: 2px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--border-color),
+                var(--border-color) 6px,
+                transparent 6px,
+                transparent 12px
+            );
+            margin: 0 auto 40px auto;
+        }
+
+        .final-slide-button {
+            font-family: 'Poppins', sans-serif;
+            display: inline-block;
+            padding: 18px 40px;
+            font-size: 22px;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            border-radius: 16px;
+            text-decoration: none;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+        }
+
+        .final-slide-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 25px -5px rgba(234, 88, 12, 0.3);
+        }
+        
+        /* Responsive adjustments for the new slide */
+        @media (max-width: 768px) {
+            .final-slide h3 {
+                font-size: 36px;
+            }
+            .final-slide p {
+                font-size: 18px;
+            }
+            .final-slide-grid {
+                 grid-template-columns: 1fr;
+            }
+            .final-slide-box h4 {
+                font-size: 20px;
+            }
+        }
+    </style>
 </head>
-<body class="bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-sans">
-    <div class="min-h-screen flex items-center justify-center">
-        <div class="text-center p-8">
-            <h1 class="text-5xl font-bold text-blue-500 mb-4">Welcome to Document One</h1>
-            <p class="text-lg text-gray-600 dark:text-gray-300">This is the content of the first HTML file. It's styled independently using Tailwind CSS.</p>
-            <div class="mt-8">
-                <img src="https://picsum.photos/800/400?random=1" alt="Random placeholder image" class="rounded-lg shadow-xl mx-auto">
+<body>
+    <main class="slides-container" id="slidesContainer">
+
+        <!-- ==================== SLIDE 1: Introduction to DMLT Practical Exam ==================== -->
+        <section class="slide hero-slide">
+            <div class="slide-number">1 / 20</div>
+            <div class="brand" style="position: absolute; top: 40px; left: 40px;">Prepe</div>
+            <h1 class="hero-title">DMLT Practical Exam</h1>
+            <p class="hero-subtitle">Complete Revision Guide (संपूर्ण रिवीजन गाइड)</p>
+            <div class="hero-grid">
+                <div class="hero-tile">
+                    <h3>✅ Practical Format (प्रारूप)</h3>
+                    <p>परीक्षा में आमतौर पर प्रैक्टिकल फाइल (Practical File), स्पॉटर (Spotters), मेजर/माइनर एक्सपेरिमेंट (Major/Minor) और वाइवा (Viva) शामिल होते हैं।</p>
+                </div>
+                <div class="hero-tile">
+                    <h3>✅ Safety & Basics (सुरक्षा)</h3>
+                    <p>लैब सुरक्षा (Lab Safety), PPE (दस्ताने, एप्रन), और बायोहाज़र्ड वेस्ट मैनेजमेंट (Biohazard waste) सबसे महत्वपूर्ण हैं। स्पिल मैनेजमेंट याद रखें।</p>
+                </div>
+                <div class="hero-tile">
+                    <h3>✅ Vials & Labels (वॉयल)</h3>
+                    <p>एंटीकोआगुलंट्स (Anticoagulants) जैसे EDTA, सिट्रेट और उनके वॉयल के रंग (Purple, Blue, Grey) वाइवा के लिए बहुत महत्वपूर्ण हैं।</p>
+                </div>
             </div>
-        </div>
-    </div>
+            <p class="hero-scroll-prompt">Scroll for Complete Notes ↓</p>
+        </section>
+
+        <!-- ==================== SLIDE 2: Lab Safety & PPE ==================== -->
+        <section class="slide">
+            <div class="slide-number">2 / 20</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">Lab Safety & PPE (लैब सुरक्षा)</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Mandatory PPE (अनिवार्य पीपीई)</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">🥼</span>Apron / Lab Coat (एप्रन)</div>
+                            <p class="point-desc">हमेशा साफ, फुल-स्लीव वाला एप्रन पहनें। यह आपके कपड़ों को केमिकल और सैंपल के छीटों से बचाता है। लैब से बाहर जाते समय इसे उतार दें।</p>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">🧤</span>Gloves (दस्ताने)</div>
+                            <p class="point-desc">ब्लड, यूरिन या किसी भी बॉडी फ्लूइड को छूते समय हमेशा दस्ताने पहनें। काम खत्म होने के बाद इन्हें सही बायोहाज़र्ड बिन में फेंक दें।</p>
+                        </li>
+                         <li>
+                            <div class="point-title"><span class="icon">😷</span>Mask & Goggles (मास्क)</div>
+                            <p class="point-desc">एरोसोल (Aerosol) या छींटे पैदा करने वाले किसी भी प्रोसीजर (जैसे सेंट्रीफ्यूज खोलना) के दौरान मास्क और गॉगल्स पहनना अनिवार्य है।</p>
+                        </li>
+                    </ul>
+                    <h3>Safety Procedures (सुरक्षा प्रक्रियाएं)</h3>
+                     <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">💧</span>Spill Management (फैलाव प्रबंधन)</div>
+                            <p class="point-desc">किसी भी सैंपल के गिरने पर, तुरंत 1% सोडियम हाइपोक्लोराइट (1% Hypochlorite) घोल का उपयोग करें। इसे 10-15 मिनट तक लगा रहने दें और फिर साफ करें।</p>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">💉</span>Sharps Handling (सुइयों का प्रबंधन)</div>
+                            <p class="point-desc">सुइयों (Needles) को कभी भी री-कैप (Re-cap) न करें। उपयोग के तुरंत बाद उन्हें शार्प कंटेनर (Puncture-proof white/blue box) में डालें।</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Biohazard Bins (बायोहाज़र्ड डिब्बे)</h4>
+                        <table class="mini-table">
+                            <thead>
+                                <tr>
+                                    <th>Color</th>
+                                    <th>Waste Type (कचरे का प्रकार)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>🔴 Red (लाल)</strong></td>
+                                    <td>Infected Plastic (दस्ताने, सिरिंज, ट्यूब)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>🟡 Yellow (पीला)</strong></td>
+                                    <td>Infected Waste (कॉटन, पट्टी, ब्लड बैग)</td>
+                                </tr>
+                                 <tr>
+                                    <td><strong>⚪ White (सफेद)</strong></td>
+                                    <td>Sharps (सुई, ब्लेड, स्लाइड)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>⚫ Black (काला)</strong></td>
+                                    <td>General Waste (पेपर, रैपर)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="info-card grow">
+                        <h4>First Aid in Lab (प्राथमिक उपचार)</h4>
+                        <ul>
+                            <li><strong>Chemical Splash:</strong> तुरंत पानी से 15 मिनट तक धोएं।</li>
+                            <li><strong>Needle Prick:</strong> घाव को बहते पानी में धोएं, ब्लीड होने दें, और रिपोर्ट करें।</li>
+                            <li><strong>Fire:</strong> Fire extinguisher का उपयोग करें (PASS: Pull, Aim, Squeeze, Sweep)।</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">🚫 No Food/Drink</div>
+                <div class="footer-tag">🧤 Wear PPE</div>
+                <div class="footer-tag">💉 Handle Sharps Carefully</div>
+                <div class="footer-tag">🔥 वाइवा के लिए महत्वपूर्ण</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 3: Anticoagulants & Vacutainer Colors ==================== -->
+        <section class="slide">
+            <div class="slide-number">3 / 20</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">Anticoagulants (स्कंदरोधी)</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Common Anticoagulants</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">🟣</span>EDTA (Purple Top)</div>
+                            <p class="point-desc"><strong>Full Form:</strong> Ethylenediamine Tetra-acetic Acid.<br><strong>Action:</strong> कैल्शियम को बांधता है (Binds Ca²⁺)।<br><strong>Uses:</strong> CBC, ESR, PBF, HbA1c. यह सेल मॉर्फोलॉजी को सबसे अच्छी तरह सुरक्षित रखता है।</p>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">🔵</span>Sodium Citrate (Blue Top)</div>
+                            <p class="point-desc"><strong>Full Form:</strong> 3.2% Trisodium Citrate.<br><strong>Action:</strong> कैल्शियम को बांधता है (Reversible)।<br><strong>Uses:</strong> Coagulation tests (PT, APTT, Fibrinogen).<br><strong>Ratio:</strong> 1 part anticoagulant : 9 parts blood (1:9).</p>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">🟢</span>Heparin (Green Top)</div>
+                            <p class="point-desc"><strong>Action:</strong> थ्रोम्बिन को रोकता है (Inhibits Thrombin)।<br><strong>Uses:</strong> Osmotic Fragility Test, Bone Marrow, Plasma Chemistry. यह CBC के लिए अच्छा नहीं है क्योंकि यह स्लाइड को नीला रंग देता है।</p>
+                        </li>
+                         <li>
+                            <div class="point-title"><span class="icon">⚫</span>Sodium Fluoride (Grey Top)</div>
+                            <p class="point-desc"><strong>Action:</strong> ग्लाइकोलाइसिस को रोकता है (Inhibits Glycolysis)।<br><strong>Uses:</strong> Blood Sugar (Glucose) estimation. यह शुगर को 24-48 घंटे तक स्थिर रखता है।</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Order of Draw (खून लेने का क्रम)</h4>
+                        <p>Cross-contamination रोकने के लिए यह क्रम महत्वपूर्ण है:</p>
+                        <div class="timeline proc">
+                            <div class="timeline-item">
+                                <div class="timeline-title">Blood Culture (संवर्धन)</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-title">Citrate (Blue Top)</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-title">Plain / Clot (Red Top)</div>
+                            </div>
+                             <div class="timeline-item">
+                                <div class="timeline-title">Heparin (Green Top)</div>
+                            </div>
+                             <div class="timeline-item">
+                                <div class="timeline-title">EDTA (Purple Top)</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-title">Fluoride (Grey Top)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-card grow">
+                        <h4>Sample Rejection Criteria (अस्वीकृति)</h4>
+                        <ul>
+                            <li><strong>Hemolysis (हीमोलाइसिस):</strong> टूटा हुआ सैंपल (लाल प्लाज्मा)।</li>
+                            <li><strong>Clotted (थक्का जमा):</strong> एंटीकोआगुलंट वॉयल में थक्का।</li>
+                            <li><strong>Wrong Vial (गलत वॉयल):</strong> PT के लिए EDTA में सैंपल।</li>
+                            <li><strong>No Label (बिना लेबल):</strong> मरीज का नाम/ID नहीं है।</li>
+                            <li><strong>QNS (मात्रा पर्याप्त नहीं):</strong> सैंपल कम मात्रा में।</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">🟣 EDTA</div>
+                <div class="footer-tag">🔵 Citrate (1:9)</div>
+                <div class="footer-tag">⚫ Grey (Sugar)</div>
+                <div class="footer-tag">🔥 वाइवा PYQ</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 4: Introduction to Urine Examination ==================== -->
+        <section class="slide">
+            <div class="slide-number">4 / 20</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">Urine Exam: Intro (यूरिन जांच: परिचय)</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Why Urine Test? (यूरिन जांच क्यों?)</h3>
+                    <p class="point-desc" style="padding-left: 0; margin-bottom: 20px;">यूरिन टेस्ट (Urinalysis) एक "लिक्विड बायोप्सी" (Liquid Biopsy) की तरह है। यह किडनी के स्वास्थ्य, मेटाबोलिक रोगों (जैसे डायबिटीज), और यूरिनरी ट्रैक्ट इन्फेक्शन (UTI) के बारे में महत्वपूर्ण जानकारी देता है।</p>
+                    <h3>The 3 Stages (3 चरण)</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">👀</span>1. Physical Examination (भौतिक जांच)</div>
+                            <p class="point-desc">आंखों से देखकर जांच करना। इसमें रंग (Colour), दिखावट (Appearance), गंध (Odour), और स्पेसिफिक ग्रेविटी (Specific Gravity) शामिल है।</p>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">🧪</span>2. Chemical Examination (रासायनिक जांच)</div>
+                            <p class="point-desc">डिपस्टिक (Dipstick) या पारंपरिक तरीकों से यूरिन में केमिकल्स की जांच करना। जैसे - शुगर (Sugar), प्रोटीन (Protein), कीटोन (Ketone), ब्लड (Blood), पीएच (pH) आदि।</p>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">🔬</span>3. Microscopic Examination (सूक्ष्मदर्शी जांच)</div>
+                            <p class="point-desc">यूरिन को सेंट्रीफ्यूज करके उसके तलछट (Sediment) को माइक्रोस्कोप के नीचे देखना। इसमें RBC, WBC, कास्ट (Casts) और क्रिस्टल (Crystals) देखे जाते हैं।</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Sample Types (सैंपल के प्रकार)</h4>
+                        <table class="mini-table">
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Best For (उपयोग)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Random (रैंडम)</strong></td>
+                                    <td>Routin_e check-up</td>
+                                </tr>
+                                 <tr>
+                                    <td><strong>First Morning (सुबह पहला)</strong></td>
+                                    <td>Pregnancy test, Microscopy (concentrated)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Mid-Stream (MSU)</strong></td>
+                                    <td>Culture (संक्रमण जांच)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>24-Hour (24-घंटे)</strong></td>
+                                    <td>Protein, Creatinine Clearance</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="info-card grow">
+                        <h4>Test Flow (जांच का प्रवाह)</h4>
+                        <div class="flow-chart" style="flex-direction: column; gap: 15px; justify-content: flex-start; align-items: stretch; margin-top: 20px;">
+                            <div class="flow-step">1. Collect Sample (सैंपल लें)</div>
+                            <div class="flow-arrow" style="transform: rotate(90deg);">→</div>
+                            <div class="flow-step">2. Physical Exam (भौतिक जांच)</div>
+                            <div class="flow-arrow" style="transform: rotate(90deg);">→</div>
+                            <div class="flow-step">3. Chemical Exam (रासायनिक जांच)</div>
+                            <div class="flow-arrow" style="transform: rotate(90deg);">→</div>
+                            <div class="flow-step">4. Centrifuge (सेंट्रीफ्यूज करें)</div>
+                            <div class="flow-arrow" style="transform: rotate(90deg);">→</div>
+                            <div class="flow-step">5. Microscopic Exam (सूक्ष्मदर्शी जांच)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">👀 Physical</div>
+                <div class="footer-tag">🧪 Chemical</div>
+                <div class="footer-tag">🔬 Microscopic</div>
+                <div class="footer-tag">💧 Liquid Biopsy</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 5: Urine Collection & Preservation ==================== -->
+        <section class="slide">
+            <div class="slide-number">5 / 20</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">Urine Collection (यूरिन संग्रह)</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Collection Procedures (संग्रह प्रक्रिया)</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">🎯</span>MSU Sample (Mid-Stream Urine)</div>
+                            <p class="point-desc">यह कल्चर (Culture) के लिए सबसे अच्छा सैंपल है ताकि संक्रमण (contamination) न हो।<br><strong>पुरुष:</strong> Genitals को साफ करें, थोड़ा यूरिन टॉयलेट में करें, फिर बीच का यूरिन कंटेनर में लें।<br><strong>महिला:</strong> Genitals को आगे से पीछे साफ करें, थोड़ा यूरिन टॉयलेट में करें, फिर बीच का यूरिन कंटेनर में लें।</p>
+                        </li>
+                         <li>
+                            <div class="point-title"><span class="icon">🕛</span>24-Hour Sample (24-घंटे का सैंपल)</div>
+                            <p class="point-desc">इसका उपयोग हार्मोन या प्रोटीन की कुल मात्रा मापने के लिए किया जाता है।<br><strong>Step 1:</strong> सुबह 8 बजे पहला यूरिन फेंक दें (Discard)।<br><strong>Step 2:</strong> अगले 24 घंटों (अगली सुबह 8 बजे तक) का सारा यूरिन एक बड़े कंटेनर में इकट्ठा करें।<br><strong>Step 3:</strong> इस दौरान कंटेनर को ठंडा (refrigerate) रखें।</p>
+                        </li>
+                    </ul>
+                     <h3>Storage & Preservation (भंडारण)</h3>
+                     <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">⏰</span>Storage Rules (भंडारण नियम)</div>
+                            <p class="point-desc">यूरिन सैंपल को <strong>1 से 2 घंटे</strong> के भीतर टेस्ट कर लेना चाहिए। यदि देरी होती है, तो बैक्टीरिया बढ़ सकते हैं, RBC/WBC नष्ट हो सकते हैं, और pH बदल सकता है।</p>
+                        </li>
+                         <li>
+                            <div class="point-title"><span class="icon">❄️</span>Preservation (संरक्षण)</div>
+                            <p class="point-desc"><strong>Refrigeration (4-6°C):</strong> यह सबसे आम और आसान तरीका है। यह बैक्टीरिया के विकास को रोकता है।<br><strong>Chemicals:</strong> 24-घंटे के सैंपल के लिए Boric Acid, HCl, या Toluene का उपयोग किया जा सकता है।</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Changes in Old Sample (पुराने सैंपल में बदलाव)</h4>
+                        <ul>
+                            <li><strong>Bacteria:</strong> बढ़ जाते हैं।</li>
+                            <li><strong>pH:</strong> एल्कलाइन (Alkaline) हो जाता है (Urea -> Ammonia)।</li>
+                            <li><strong>RBC/WBC/Casts:</strong> नष्ट (Lysis) हो जाते हैं।</li>
+                            <li><strong>Glucose:</strong> कम हो जाता है (बैक्टीरिया द्वारा उपयोग)।</li>
+                            <li><strong>Ketones:</strong> वाष्पित (Evaporate) हो जाते हैं।</li>
+                        </ul>
+                    </div>
+                    <div class="info-card grow">
+                        <h4>Common Errors (आम गलतियाँ)</h4>
+                        <div class="quick-fact" style="background: #fff1f2; border-color: #f43f5e;">
+                            <strong style="color: #be123c;">Contamination (संदूषण):</strong> कंटेनर का साफ न होना या गलत संग्रह तकनीक।
+                        </div>
+                         <div class="quick-fact" style="background: #fff1f2; border-color: #f43f5e; margin-top: 20px;">
+                            <strong style="color: #be123c;">Delay in Transport (देरी):</strong> 2 घंटे से ज्यादा समय लगना और प्रिजर्व न करना।
+                        </div>
+                         <div class="quick-fact" style="background: #fff1f2; border-color: #f43f5e; margin-top: 20px;">
+                            <strong style="color: #be123c;">Incorrect Labeling (गलत लेबल):</strong> मरीज का नाम या समय गलत लिखना।
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">🎯 MSU (Culture)</div>
+                <div class="footer-tag">⏰ Test within 2 Hours</div>
+                <div class="footer-tag">❄️ Refrigeration</div>
+                <div class="footer-tag">🚫 Avoid Contamination</div>
+            </div>
+        </section>
+        
+        <!-- ==================== SLIDE 6: Urine Physical Examination ==================== -->
+        <section class="slide">
+            <div class="slide-number">6 / 20</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">Urine: Physical Exam (भौतिक जांच)</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Physical Parameters (भौतिक पैरामीटर)</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">🎨</span>Colour (रंग)</div>
+                            <p class="point-desc"><strong>Normal:</strong> Pale Yellow (हल्का पीला) - Urochrome pigment के कारण।<br><strong>Abnormal:</strong> Red (खून), Dark Yellow/Brown (जॉन्डिस), Colourless (डायबिटीज), Milky (पस/फैट)।</p>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">🌫️</span>Appearance (दिखावट)</div>
+                            <p class="point-desc"><strong>Normal:</strong> Clear (साफ़)।<br><strong>Abnormal:</strong> Hazy (धुंधला), Cloudy (बादल जैसा), Turbid (गंदला) - यह पस (Pus), बैक्टीरिया, क्रिस्टल या फैट के कारण हो सकता है।</p>
+                        </li>
+                         <li>
+                            <div class="point-title"><span class="icon">👃</span>Odour (गंध)</div>
+                            <p class="point-desc"><strong>Normal:</strong> Aromatic (एरोमेटिक)।<br><strong>Abnormal:</strong> Fruity/Sweet (मीठी) - डायबिटीज (कीटोन), Ammoniacal (अमोनिया जैसी) - पुराना सैंपल या UTI।</p>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">⚖️</span>Specific Gravity (S.G.)</div>
+                            <p class="point-desc"><strong>Normal:</strong> 1.005 – 1.030.<br><strong>Method:</strong> Urinometer या Dipstick.<br><strong>High S.G.:</strong> Dehydration, Diabetes Mellitus.<br><strong>Low S.G.:</strong> बहुत ज्यादा पानी पीना, Kidney failure.</p>
+                        </li>
+                         <li>
+                            <div class="point-title"><span class="icon">🌡️</span>pH (पीएच)</div>
+                            <p class="point-desc"><strong>Normal:</strong> 4.5 – 8.0 (Average 6.0, slightly acidic).<br><strong>Acidic:</strong> High protein diet, DKA.<br><strong>Alkaline:</strong> UTI, old sample.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Colour vs. Condition (रंग और रोग)</h4>
+                        <table class="mini-table">
+                            <thead>
+                                <tr>
+                                    <th>Colour (रंग)</th>
+                                    <th>Possible Cause (संभावित कारण)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Pale Yellow</strong></td>
+                                    <td>Normal (सामान्य)</td>
+                                </tr>
+                                 <tr>
+                                    <td><strong>Colourless</strong></td>
+                                    <td>Diabetes, Diuretics</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Red / Smoky</strong></td>
+                                    <td>Blood (Hematuria), Stones</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Dark Yellow/Brown</strong></td>
+                                    <td>Bilirubin (Jaundice)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Milky White</strong></td>
+                                    <td>Pus (UTI), Fats</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                     <div class="info-card grow">
+                        <h4>How to use Urinometer (यूरिनोमीटर)</h4>
+                        <ul>
+                            <li>यूरिन को जार में 3/4 भरें।</li>
+                            <li>यूरिनोमीटर को धीरे से घुमाते हुए डालें।</li>
+                            <li>जार को छुए बिना, सतह पर रीडिंग पढ़ें।</li>
+                            <li><strong>Correction:</strong> हर 3°C तापमान (RT से ऊपर/नीचे) के लिए 0.001 S.G. जोड़ें/घटाएं।</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">🎨 Colour</div>
+                <div class="footer-tag">🌫️ Appearance</div>
+                <div class="footer-tag">⚖️ Specific Gravity</div>
+                <div class="footer-tag">🌡️ pH</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 7: Urine Chemical Examination (Dipstick) ==================== -->
+        <section class="slide">
+            <div class="slide-number">7 / 20</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">Urine: Chemical Exam (रासायनिक जांच)</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Dipstick Method (स्ट्रिप विधि)</h3>
+                    <p class="point-desc" style="padding-left: 0; margin-bottom: 20px;">यह एक तेज (Rapid) और आसान तरीका है। एक प्लास्टिक स्ट्रिप पर अलग-अलग केमिकल पैड लगे होते हैं, जो यूरिन के संपर्क में आने पर रंग बदलते हैं।</p>
+                    <h3>Key Parameters (मुख्य पैरामीटर)</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">🍬</span>Glucose (ग्लूकोज)</div>
+                            <p class="point-desc"><strong>Normal:</strong> Nil. <strong>Positive in:</strong> Diabetes Mellitus. (Renal threshold: 180 mg/dL).</p>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">🧱</span>Protein (प्रोटीन)</div>
+                            <p class="point-desc"><strong>Normal:</strong> Nil/Trace. <strong>Positive in:</strong> Kidney disease (Glomerulonephritis), UTI. (Albumin).</p>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">🔥</span>Ketone (कीटोन)</div>
+                            <p class="point-desc"><strong>Normal:</strong> Nil. <strong>Positive in:</strong> Diabetic Ketoacidosis (DKA), Starvation (भूख हड़ताल).</p>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">🩸</span>Blood (रक्त)</div>
+                            <p class="point-desc"><strong>Normal:</strong> Nil. <strong>Positive in:</strong> Kidney stones, UTI, Tumors.</p>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">🦠</span>Nitrite (नाइट्राइट)</div>
+                            <p class="point-desc"><strong>Normal:</strong> Nil. <strong>Positive in:</strong> Bacterial infection (UTI). (Bacteria convert Nitrate to Nitrite).</p>
+                        </li>
+                         <li>
+                            <div class="point-title"><span class="icon">🟡</span>Bilirubin (बिलीरुबिन)</div>
+                            <p class="point-desc"><strong>Normal:</strong> Nil. <strong>Positive in:</strong> Jaundice (पीलिया), Liver disease.</p>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">🧑‍⚖️</span>Leukocytes (ल्यूकोसाइट्स)</div>
+                            <p class="point-desc"><strong>Normal:</strong> Nil. <strong>Positive in:</strong> UTI (Indicates WBCs/Pus).</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Dipstick Procedure (प्रक्रिया)</h4>
+                        <div class="timeline proc">
+                            <div class="timeline-item">
+                                <div class="timeline-title">Dip (डुबोएं)</div>
+                                <div class="timeline-desc">स्ट्रिप को ताजे यूरिन में पूरी तरह डुबोएं।</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-title">Remove Excess (अतिरिक्त हटाएं)</div>
+                                <div class="timeline-desc">स्ट्रिप को कंटेनर के किनारे से पोंछ लें।</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-title">Wait (प्रतीक्षा करें)</div>
+                                <div class="timeline-desc">हर पैड के लिए निर्धारित समय (30 sec - 2 min) तक प्रतीक्षा करें।</div>
+                            </div>
+                             <div class="timeline-item">
+                                <div class="timeline-title">Compare (तुलना करें)</div>
+                                <div class="timeline-desc">स्ट्रिप के रंग की तुलना बोतल पर दिए गए चार्ट से करें।</div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="info-card grow">
+                        <h4>False Positives/Negatives (गलत परिणाम)</h4>
+                        <ul>
+                            <li><strong>False +ve Protein:</strong> बहुत एल्कलाइन यूरिन।</li>
+                            <li><strong>False -ve Glucose:</strong> High Vitamin C.</li>
+                            <li><strong>False -ve Nitrite:</strong> Low bacteria count or High Vitamin C.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">🧪 Dipstick</div>
+                <div class="footer-tag">🍬 Glucose</div>
+                <div class="footer-tag">🧱 Protein</div>
+                <div class="footer-tag">🦠 Nitrite (UTI)</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 8: Classical Urine Tests ==================== -->
+        <section class="slide">
+            <div class="slide-number">8 / 20</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">Classical Tests (पारंपरिक जांच)</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Manual Chemical Tests</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">🔥</span>Benedict’s Test (Sugar)</div>
+                            <p class="point-desc"><strong>Principle:</strong> Reducing sugars (like Glucose) reduce Copper Sulphate (blue) to Cuprous Oxide (red) in hot alkaline medium.<br><strong>Procedure:</strong> 5ml Benedict's reagent + 8 drops urine. Boil for 2 mins.<br><strong>Result:</strong> Blue (0%) → Green → Yellow → Orange → Brick Red (2%+).</p>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">💨</span>Heat & Acetic Acid (Protein)</div>
+                            <p class="point-desc"><strong>Principle:</strong> Proteins (Albumin) coagulate (जम जाते हैं) on heating.<br><strong>Procedure:</strong> Test tube को 2/3 यूरिन से भरें। ऊपरी हिस्से को गर्म करें।<br><strong>Result:</strong> Cloudiness (धुंधलापन) = Protein. अगर Acetic acid डालने पर गायब हो जाए तो Phosphate, अगर बना रहे तो Protein.</p>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">🟣</span>Rothera’s Test (Ketone)</div>
+                            <p class="point-desc"><strong>Principle:</strong> Ketones (Acetone) react with Sodium Nitroprusside in alkaline medium.<br><strong>Procedure:</strong> 5ml urine + Rothera's powder. Mix. Add Liquor Ammonia.<br><strong>Result:</strong> Purple ring (बैंगनी छल्ला) = Positive.</p>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">🟢</span>Fouchet’s Test (Bile)</div>
+                            <p class="point-desc"><strong>Principle:</strong> Ferric Chloride (Fouchet's reagent) oxidizes Bilirubin to Biliverdin (green).<br><strong>Procedure:</strong> Urine में Barium Chloride मिलाएं, Filter करें। Filter paper पर 1 ड्रॉप Fouchet's reagent डालें।<br><strong>Result:</strong> Green/Blue colour = Positive.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Benedict's vs. Dipstick (Sugar)</h4>
+                        <table class="mini-table">
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>Benedict's</th>
+                                    <th>Dipstick</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Specificity</strong></td>
+                                    <td>Non-specific (सभी reducing sugars)</td>
+                                    <td>Specific (केवल Glucose)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Speed</strong></td>
+                                    <td>Slow (10-15 min)</td>
+                                    <td>Fast (30 sec)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Ease</strong></td>
+                                    <td>Complex (Boiling)</td>
+                                    <td>Easy</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="info-card grow">
+                        <h4>Benedict's Grading (ग्रेडिंग)</h4>
+                        <ul>
+                            <li><strong>Blue (नीला):</strong> Nil (0%)</li>
+                            <li><strong>Green (हरा):</strong> Trace (0.5%)</li>
+                            <li><strong>Yellow (पीला):</strong> + (1.0%)</li>
+                            <li><strong>Orange (नारंगी):</strong> ++ (1.5%)</li>
+                            <li><strong>Brick Red (ईंट जैसा लाल):</strong> +++ / ++++ (2%+)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">🔥 Benedict's (Sugar)</div>
+                <div class="footer-tag">💨 Heat Test (Protein)</div>
+                <div class="footer-tag">🟣 Rothera's (Ketone)</div>
+                <div class="footer-tag">🧪 वाइवा प्रैक्टिकल</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 9: Urine Microscopy Preparation ==================== -->
+        <section class="slide">
+            <div class="slide-number">9 / 20</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">Urine Microscopy: Prep (सूक्ष्मदर्शी तैयारी)</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Procedure for Sediment Prep</h3>
+                    <p class="point-desc" style="padding-left: 0; margin-bottom: 20px;">माइक्रोस्कोप के नीचे देखने के लिए यूरिन के तलछट (Sediment) को कंसन्ट्रेट (Concentrate) करना जरूरी है।</p>
+                    <div class="timeline proc">
+                        <div class="timeline-item">
+                            <div class="timeline-title">Step 1: Take Sample (सैंपल लें)</div>
+                            <div class="timeline-desc">एक साफ, सूखी सेंट्रीफ्यूज ट्यूब में 10-12 ml यूरिन लें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Step 2: Centrifuge (सेंट्रीफ्यूज)</div>
+                            <div class="timeline-desc">ट्यूब को 2000 RPM (Revolutions Per Minute) पर 5 मिनट के लिए सेंट्रीफ्यूज करें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Step 3: Decant (ऊपरी तरल हटाएं)</div>
+                            <div class="timeline-desc">ऊपरी साफ तरल (Supernatant) को सावधानी से फेंक दें। ट्यूब के तल पर 0.5 - 1 ml तलछट (Sediment) बचा लें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Step 4: Re-suspend (मिक्स करें)</div>
+                            <div class="timeline-desc">ट्यूब को धीरे से हिलाकर तलछट को बचे हुए तरल में मिक्स करें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Step 5: Prepare Slide (स्लाइड बनाएं)</div>
+                            <div class="timeline-desc">इस तलछट की 1 बूंद (1 drop) एक साफ ग्लास स्लाइड पर लें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Step 6: Apply Coverslip (कवरस्लिप लगाएं)</div>
+                            <div class="timeline-desc">कवरस्लिप को 45° एंगल पर रखकर धीरे से लगाएं ताकि हवा के बुलबुले (air bubbles) न बनें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Step 7: Observe (जांच करें)</div>
+                            <div class="timeline-desc">पहले Low Power (10x) में और फिर High Power (40x) में माइक्रोस्कोप के नीचे देखें।</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Microscope Settings (सेटिंग्स)</h4>
+                        <ul>
+                            <li><strong>Light (रोशनी):</strong> कम रखें। Condenser को नीचे रखें और Diaphragm को थोड़ा बंद करें। (Low light is key!)</li>
+                            <li><strong>Focus (फोकस):</strong> पहले 10x (LPF) पर फोकस करें, फिर 40x (HPF) पर।</li>
+                        </ul>
+                    </div>
+                    <div class="info-card grow">
+                        <h4>LPF vs HPF (क्या देखें)</h4>
+                        <table class="mini-table">
+                            <thead>
+                                <tr>
+                                    <th>Power</th>
+                                    <th>Field</th>
+                                    <th>What to See (क्या देखें)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>10x</strong></td>
+                                    <td>Low Power (LPF)</td>
+                                    <td>Casts (कास्ट), Crystals (क्रिस्टल)</td>
+                                </tr>
+                                 <tr>
+                                    <td><strong>40x</strong></td>
+                                    <td>High Power (HPF)</td>
+                                    <td>RBC, WBC, Bacteria, Epithelial cells</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="quick-fact" style="background: #fff1f2; border-color: #f43f5e;">
+                        <strong style="color: #be123c;">Common Error:</strong> बहुत तेज रोशनी (Too much light) का उपयोग करना, जिससे Hyaline Casts जैसे पारदर्शी तत्व दिखाई नहीं देते।
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">🌀 Centrifuge (5 min)</div>
+                <div class="footer-tag">💧 Sediment Prep</div>
+                <div class="footer-tag">🚫 No Air Bubbles</div>
+                <div class="footer-tag">💡 Low Light</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 10: Urine Microscopy (Results) ==================== -->
+        <section class="slide">
+            <div class="slide-number">10 / 20</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">Urine Microscopy: Results (परिणाम)</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Microscopic Findings (क्या मिल सकता है)</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">🩸</span>RBC (Red Blood Cells)</div>
+                            <p class="point-desc"><strong>Normal:</strong> 0-2 /HPF. <strong>High (Hematuria):</strong> Kidney stones, UTI, Glomerulonephritis. (छोटे, biconcave डिस्क)।</p>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">⚪</span>WBC / Pus Cells (पस सेल्स)</div>
+                            <p class="point-desc"><strong>Normal:</strong> 0-5 /HPF. <strong>High (Pyuria):</strong> UTI (संक्रमण). (RBC से बड़े, granular). Clumps में दिख सकते हैं।</p>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">🧱</span>Epithelial Cells (उपकला कोशिकाएं)</div>
+                            <p class="point-desc"><strong>Squamous:</strong> बड़े, चपटे (Contamination). <strong>Transitional:</strong> Bladder से. <strong>Renal Tubular:</strong> छोटे, गोल (Serious kidney damage).</p>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon"> cylinder </span>Casts (कास्ट)</div>
+                            <p class="point-desc">ये किडनी की ट्यूबों में बनते हैं। <strong>Hyaline:</strong> Normal. <strong>RBC Cast:</strong> Glomerulonephritis. <strong>WBC Cast:</strong> Pyelonephritis. <strong>Waxy Cast:</strong> Chronic Renal Failure.</p>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">💎</span>Crystals (क्रिस्टल)</div>
+                            <p class="point-desc"><strong>Acidic Urine:</strong> Calcium Oxalate (लिफाफे जैसे), Uric Acid (रम्बस जैसे). <strong>Alkaline Urine:</strong> Triple Phosphate (ताबूत जैसे), Amorphous.</p>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">🦠</span>Others (अन्य)</div>
+                            <p class="point-desc"><strong>Bacteria:</strong> UTI. <strong>Yeast:</strong> Fungal infection. <strong>Parasites:</strong> Trichomonas vaginalis. <strong>Sperm:</strong> (Male).</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Common Crystal Shapes (क्रिस्टल के आकार)</h4>
+                        <table class="mini-table">
+                            <thead>
+                                <tr>
+                                    <th>Crystal</th>
+                                    <th>Shape (आकार)</th>
+                                    <th>pH</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Calcium Oxalate</strong></td>
+                                    <td>Envelope (लिफाफा)</td>
+                                    <td>Acidic</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Triple Phosphate</strong></td>
+                                    <td>Coffin Lid (ताबूत)</td>
+                                    <td>Alkaline</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Uric Acid</strong></td>
+                                    <td>Rhombic / Diamond</td>
+                                    <td>Acidic</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Amorphous</strong></td>
+                                    <td>Dot-like (रेत जैसा)</td>
+                                    <td>Both</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="quick-fact">
+                        <strong style="color: #a16207;">PYQ Alert:</strong> "WBC Casts" का दिखना "Pyelonephritis" (Upper UTI) को इंगित करता है, जबकि सिर्फ "WBCs" का दिखना "Cystitis" (Lower UTI) हो सकता है।
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">🩸 RBC (Stones)</div>
+                <div class="footer-tag">⚪ WBC (UTI)</div>
+                <div class="footer-tag"> cylinder  Casts (Kidney)</div>
+                <div class="footer-tag">💎 Crystals</div>
+                <div class="footer-tag">🔥 Spotter PYQ</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 11: Introduction to Hemoglobin (Hb) ==================== -->
+        <section class="slide">
+            <div class="slide-number">11 / 20</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">Hemoglobin (Hb): Intro (हीमोग्लोबिन)</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>What is Hemoglobin? (हीमोग्लोबिन क्या है?)</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">🧬</span>Definition (परिभाषा)</div>
+                            <p class="point-desc">हीमोग्लोबिन (Hb) लाल रक्त कोशिकाओं (RBCs) में पाया जाने वाला एक आयरन युक्त प्रोटीन है। यह एक "Respiratory Pigment" है।</p>
+                        </li>
+                         <li>
+                            <div class="point-title"><span class="icon">💨</span>Function (कार्य)</div>
+                            <p class="point-desc"><strong>1. Oxygen Transport:</strong> फेफड़ों से ऑक्सीजन (O₂) लेकर शरीर के ऊतकों (Tissues) तक पहुंचाना।<br><strong>2. CO₂ Transport:</strong> ऊतकों से कार्बन डाइऑक्साइड (CO₂) वापस फेफड़ों तक लाना।</p>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">🧱</span>Structure (संरचना)</div>
+                            <p class="point-desc">Hb के एक मॉलिक्यूल में 2 भाग होते हैं:<br><strong>Heme (हीम):</strong> 4 आयरन (Fe²⁺) युक्त ग्रुप।<br><strong>Globin (ग्लोबिन):</strong> 4 पॉलीपेप्टाइड चेन (2 Alpha + 2 Beta in HbA)।</p>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">📉</span>Clinical Significance (महत्व)</div>
+                            <p class="point-desc"><strong>Low Hb (Anemia):</strong> शरीर में ऑक्सीजन की कमी (थकान, कमजोरी)।<br><strong>High Hb (Polycythemia):</strong> खून का गाढ़ा होना (क्लॉटिंग का खतरा)।</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Normal Ranges (सामान्य मान)</h4>
+                        <table class="mini-table">
+                            <thead>
+                                <tr>
+                                    <th>Group</th>
+                                    <th>Range (g/dL)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Adult Male (पुरुष)</strong></td>
+                                    <td>13.5 - 17.5 g/dL</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Adult Female (महिला)</strong></td>
+                                    <td>12.0 - 15.5 g/dL</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Newborn (नवजात)</strong></td>
+                                    <td>14.0 - 24.0 g/dL</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Pregnant (गर्भवती)</strong></td>
+                                    <td>> 11.0 g/dL</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="stat-box" style="margin-top: 20px;">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">O₂ Molecules carried by 1 Hb</span>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">🩸 RBC Protein</div>
+                <div class="footer-tag">💨 Oxygen Transport</div>
+                <div class="footer-tag">📉 Anemia</div>
+                <div class="footer-tag">g/dL</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 12: Sahli’s Hb Method (Theory) ==================== -->
+        <section class="slide">
+            <div class="slide-number">12 / 20</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">Sahli’s Method: Theory (साहली विधि)</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Principle (सिद्धांत)</h3>
+                    <p class="point-desc" style="padding-left: 0; margin-bottom: 20px;">यह एक "Acid Hematin" विधि है।<br>जब रक्त (Blood) को <strong>N/10 HCl (हाइड्रोक्लोरिक एसिड)</strong> के साथ मिलाया जाता है, तो हीमोग्लोबिन (Hb) <strong>एसिड हीमैटिन (Acid Hematin)</strong> में बदल जाता है, जिसका रंग <strong>भूरा (Brown)</strong> होता है।</p>
+                    <div class="flow-chart" style="justify-content: center; margin-bottom: 25px;">
+                        <div class="flow-step">Hb (Red)</div>
+                        <div class="flow-arrow">+</div>
+                        <div class="flow-step">N/10 HCl</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">Acid Hematin (Brown)</div>
+                    </div>
+                    <h3>Comparison (तुलना)</h3>
+                    <p class="point-desc" style="padding-left: 0; margin-bottom: 20px;">इस भूरे रंग के घोल (Acid Hematin) को डिस्टिल्ड वॉटर (Distilled Water) से तब तक पतला (dilute) किया जाता है जब तक कि इसका रंग साहली के हीमोग्लोबिनोमीटर (Sahli's Hemoglobinometer) में दिए गए <strong>भूरे रंग के ग्लास स्टैण्डर्ड (Comparator)</strong> से मैच न हो जाए।</button>
+                    <h3>Apparatus (उपकरण)</h3>
+                    <ul>
+                         <li>
+                            <div class="point-title"><span class="icon">🌡️</span>Sahli's Comparator Box (कम्पेरेटर)</div>
+                        </li>
+                         <li>
+                            <div class="point-title"><span class="icon">🧪</span>Sahli's Graduated Tube (ग्रेजुएटेड ट्यूब)</div>
+                        </li>
+                         <li>
+                            <div class="point-title"><span class="icon">💉</span>Sahli's Pipette (20 cmm / 0.02 ml)</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Advantages (फायदे)</h4>
+                        <ul>
+                            <li>Simple (सरल)</li>
+                            <li>Cheap (सस्ता)</li>
+                            <li>No electricity needed (बिजली की जरूरत नहीं)</li>
+                            <li>Good for field work (फील्ड वर्क के लिए अच्छा)</li>
+                        </ul>
+                    </div>
+                    <div class="info-card grow">
+                        <h4>Limitations (कमियां)</h4>
+                        <ul>
+                            <li><strong>Visual Error:</strong> रंग मैच करने में गलती हो सकती है।</li>
+                            <li><strong>Unstable Colour:</strong> एसिड हीमैटिन का रंग 10 मिनट के बाद फीका पड़ने लगता है।</li>
+                            <li><strong>Measures only OxyHb:</strong> यह Hb के सभी रूपों (जैसे CarboxyHb) को नहीं मापता।</li>
+                            <li><strong>Not Accurate:</strong> सटीक परिणाम नहीं देता।</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">🧪 Acid Hematin</div>
+                <div class="footer-tag">🟤 Brown Colour</div>
+                <div class="footer-tag">🚫 Not Accurate</div>
+                <div class="footer-tag">🔥 DMLT Practical</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 13: Sahli’s Hb Method (Procedure) ==================== -->
+        <section class="slide">
+            <div class="slide-number">13 / 20</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">Sahli’s Method: Procedure (प्रक्रिया)</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Step-by-Step Procedure</h3>
+                    <div class="timeline proc">
+                        <div class="timeline-item">
+                            <div class="timeline-title">Step 1: Add Acid (एसिड डालें)</div>
+                            <div class="timeline-desc">N/10 HCl को साहली ट्यूब में 2 g% (या 20) के निशान तक भरें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Step 2: Add Blood (रक्त डालें)</div>
+                            <div class="timeline-desc">साहली पिपेट में 20 cmm (0.02 ml) रक्त लें। अतिरिक्त रक्त को पोंछ लें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Step 3: Mix (मिक्स करें)</div>
+                            <div class="timeline-desc">रक्त को एसिड में डालें। पिपेट को एसिड में 2-3 बार धो लें। ट्यूब को हिलाकर मिक्स करें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Step 4: Wait (प्रतीक्षा करें)</div>
+                            <div class="timeline-desc">एसिड हीमैटिन बनने के लिए 5-10 मिनट तक प्रतीक्षा करें। (यह सबसे महत्वपूर्ण कदम है)।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Step 5: Dilute (पतला करें)</div>
+                            <div class="timeline-desc">ड्रॉपर से डिस्टिल्ड वॉटर (Distilled Water) बूंद-बूंद करके डालें। हर बूंद के बाद स्टिरर (Stirrer) से मिक्स करें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Step 6: Match Colour (रंग मिलाएं)</div>
+                            <div class="timeline-desc">तब तक पानी मिलाएं जब तक कि ट्यूब का रंग कम्पेरेटर के भूरे ग्लास से मैच न हो जाए।</div>
+                        </div>
+                         <div class="timeline-item">
+                            <div class="timeline-title">Step 7: Take Reading (रीडिंग लें)</div>
+                            <div class="timeline-desc">ट्यूब में घोल के निचले स्तर (Lower Meniscus) पर रीडिंग (g/dL में) पढ़ें।</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Common Errors (आम गलतियाँ)</h4>
+                        <ul>
+                            <li><strong>Pipetting Error:</strong> 20 cmm से कम या ज्यादा रक्त लेना।</li>
+                            <li><strong>Waiting Time:</strong> 5 मिनट से कम प्रतीक्षा करना (रंग पूरी तरह नहीं बनता)।</li>
+                            <li><strong>Over-dilution:</strong> ज्यादा पानी मिला देना।</li>
+                            <li><strong>Poor Light:</strong> खराब रोशनी में रंग मिलाना।</li>
+                            <li><strong>Air Bubbles:</strong> पिपेट में हवा का बुलबुला।</li>
+                        </ul>
+                    </div>
+                     <div class="quick-fact" style="margin-top: 20px;">
+                        <strong style="color: #a16207;">Viva Question:</strong> हम 10 मिनट क्यों रुकते हैं? <br><strong>Answer:</strong> हीमोग्लोबिन को एसिड हीमैटिन में पूरी तरह बदलने के लिए (Maximum colour development)।
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">💉 20 cmm Blood</div>
+                <div class="footer-tag">⏰ Wait 10 Mins</div>
+                <div class="footer-tag">💧 Add Water Drop-by-Drop</div>
+                <div class="footer-tag">🟤 Match Brown Colour</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 14: Cyanmethemoglobin Method ==================== -->
+        <section class="slide">
+            <div class="slide-number">14 / 20</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">Cyanmethemoglobin (Drabkin's)</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>"Gold Standard" Method</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">🔬</span>Principle (सिद्धांत)</div>
+                            <p class="point-desc">रक्त को Drabkin's Reagent में मिलाया जाता है।<br><strong>Step 1:</strong> Potassium Ferricyanide, Hb को Methemoglobin में बदलता है।<br><strong>Step 2:</strong> Potassium Cyanide, Methemoglobin को स्थिर Cyanmethemoglobin में बदलता है।</p>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">🧪</span>Drabkin's Reagent (अभिकर्मक)</div>
+                            <p class="point-desc">इसमें 3 मुख्य घटक होते हैं:<br>1. Potassium Ferricyanide<br>2. Potassium Cyanide (KCN) - <strong>Poison!</strong><br>3. Potassium Dihydrogen Phosphate</p>
+                        </li>
+                         <li>
+                            <div class="point-title"><span class="icon">📐</span>Procedure (प्रक्रिया)</div>
+                            <p class="point-desc"><strong>Step 1:</strong> 5 ml Drabkin's reagent + 0.02 ml (20 cmm) blood.<br><strong>Step 2:</strong> Mix well and wait for 5 minutes.<br><strong>Step 3:</strong> Measure the absorbance at <strong>540 nm</strong> in a Colorimeter.<br><strong>Step 4:</strong> Calculate Hb conc. using a Standard Curve.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Why "Gold Standard"? (यह बेहतर क्यों है?)</h4>
+                        <ul>
+                            <li><strong>Measures All Hb:</strong> यह Sulfhemoglobin को छोड़कर Hb के सभी रूपों (OxyHb, CarboxyHb, MetHb) को मापता है।</li>
+                            <li><strong>Stable Colour:</strong> Cyanmethemoglobin का रंग बहुत स्थिर होता है।</li>
+                            <li><strong>Accurate:</strong> बहुत सटीक (Accurate) और विश्वसनीय (Reliable) है।</li>
+                            <li><strong>Standardized:</strong> इसे स्टैण्डर्ड सलूशन से कैलिब्रेट किया जा सकता है।</li>
+                        </ul>
+                    </div>
+                    <div class="stat-box" style="margin-top: 20px;">
+                        <span class="stat-number">540 nm</span>
+                        <span class="stat-label">Wavelength (तरंग दैर्ध्य)</span>
+                    </div>
+                    <div class="quick-fact" style="margin-top: 20px; background: #fff1f2; border-color: #f43f5e;">
+                        <strong style="color: #be123c;">Warning:</strong> Drabkin's reagent में सायनाइड (Cyanide) होता है, जो अत्यधिक जहरीला (Poisonous) है। इसे मुंह से पिपेट न करें।
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">🏆 Gold Standard</div>
+                <div class="footer-tag">🧪 Drabkin's Reagent</div>
+                <div class="footer-tag">🚥 540 nm</div>
+                <div class="footer-tag">☠️ KCN (Poison)</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 15: Packed Cell Volume (PCV) Introduction ==================== -->
+        <section class="slide">
+            <div class="slide-number">15 / 20</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">PCV / Hematocrit: Intro (पीसीवी)</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Definition & Principle (परिभाषा और सिद्धांत)</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">📊</span>What is PCV? (क्या है?)</div>
+                            <p class="point-desc">PCV (पैक्ड सेल वॉल्यूम) या Hematocrit (Hct) रक्त की कुल मात्रा (Total Volume) में RBCs का प्रतिशत (%) है।</p>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">🌀</span>Principle (सिद्धांत)</div>
+                            <p class="point-desc">जब एंटीकोआगुलंट (EDTA) वाले रक्त को सेंट्रीफ्यूज किया जाता है, तो कोशिकाएं घनत्व (Density) के आधार पर अलग-अलग परतों में बंट जाती हैं।</p>
+                        </li>
+                    </ul>
+                    <h3>The Three Layers (तीन परतें)</h3>
+                     <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">🟡</span>Top Layer: Plasma (55%)</div>
+                            <p class="point-desc">हल्का पीला तरल, जिसमें पानी, प्रोटीन, हार्मोन होते हैं।</p>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">⚪</span>Middle Layer: Buffy Coat (<1%)</div>
+                            <p class="point-desc">पतली सफेद परत, जिसमें WBCs और Platelets होते हैं।</p>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">🔴</span>Bottom Layer: Packed RBCs (45%)</div>
+                            <p class="point-desc">नीचे जमी हुई लाल कोशिकाएं। <strong>इसी परत की ऊंचाई PCV है।</strong></p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Clinical Significance (महत्व)</h4>
+                        <ul>
+                            <li><strong>Low PCV (कम):</strong> Anemia (एनीमिया)।</li>
+                            <li><strong>High PCV (ज्यादा):</strong> Polycythemia (पॉलीसिथीमिया), Dehydration (निर्जलीकरण)।</li>
+                        </ul>
+                    </div>
+                     <div class="info-card grow">
+                        <h4>Rule of Three (तीन का नियम)</h4>
+                        <p>यह Hb और PCV के बीच संबंध की एक त्वरित जांच है:</p>
+                        <div class="stat-box" style="margin-top: 20px;">
+                            <span class="stat-number" style="font-size: 30px;">Hb (g/dL) x 3 ≈ PCV (%)</span>
+                            <span class="stat-label">Example: 14 g/dL Hb x 3 = 42% PCV</span>
+                        </div>
+                        <div class="quick-fact" style="margin-top: 20px;">
+                           <p>यदि यह नियम मेल नहीं खाता, तो यह मशीन में त्रुटि या Anisocytosis (RBC आकार में भिन्नता) का संकेत हो सकता है।</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">📊 % of RBCs</div>
+                <div class="footer-tag">🌀 Centrifugation</div>
+                <div class="footer-tag">📉 Anemia</div>
+                <div class="footer-tag"> règle  Hb x 3 = PCV</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 16: PCV (Microhematocrit) Procedure ==================== -->
+        <section class="slide">
+            <div class="slide-number">16 / 20</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">PCV: Procedure (प्रक्रिया)</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Microhematocrit Method (माइक्रोहेमेटोक्रिट)</h3>
+                    <p class="point-desc" style="padding-left: 0; margin-bottom: 20px;">यह PCV मापने की सबसे आम और तेज विधि है।</p>
+                    <div class="timeline proc">
+                        <div class="timeline-item">
+                            <div class="timeline-title">Step 1: Sample (सैंपल)</div>
+                            <div class="timeline-desc">EDTA (Purple top) वॉयल से रक्त लें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Step 2: Fill Tube (ट्यूब भरें)</div>
+                            <div class="timeline-desc">कैपिलरी एक्शन (Capillary action) से कैपिलरी ट्यूब को 2/3 से 3/4 तक भरें। (Blue tip = Plain, Red tip = Heparinized)</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Step 3: Seal (सीलिंग)</div>
+                            <div class="timeline-desc">ट्यूब के सूखे (Dry) सिरे को सीलिंग क्ले (Sealing clay / Plasticine) में 2-3 बार दबाकर सील करें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Step 4: Centrifuge (सेंट्रीफ्यूज)</div>
+                            <div class="timeline-desc">ट्यूब को माइक्रोहेमेटोक्रिट सेंट्रीफ्यूज में रखें (सील वाला सिरा बाहर की ओर)। 10,000-12,000 RPM पर 5 मिनट के लिए स्पिन करें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Step 5: Read (रीडिंग लें)</div>
+                            <div class="timeline-desc">ट्यूब को माइक्रोहेमेटोक्रिट रीडर (Reader Card) पर रखकर प्रतिशत (%) में रीडिंग लें।</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Normal Values (सामान्य मान)</h4>
+                        <table class="mini-table">
+                            <thead>
+                                <tr>
+                                    <th>Group</th>
+                                    <th>Range (%)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Adult Male (पुरुष)</strong></td>
+                                    <td>40% - 54%</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Adult Female (महिला)</strong></td>
+                                    <td>36% - 48%</td>
+                                </tr>
+                                 <tr>
+                                    <td><strong>Newborn (नवजात)</strong></td>
+                                    <td>44% - 64%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="info-card grow">
+                        <h4>Wintrobe's Method (विंट्रोब विधि)</h4>
+                        <ul>
+                            <li>यह PCV के लिए पुरानी (Macro) विधि है।</li>
+                            <li><strong>Tube:</strong> Wintrobe Tube (110 mm long).</li>
+                            <li><strong>Speed:</strong> 3000 RPM for 30 minutes (Slower).</li>
+                            <li><strong>Benefit:</strong> इसी ट्यूब से ESR भी किया जा सकता है।</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">🧪 Capillary Tube</div>
+                <div class="footer-tag">🧱 Seal with Clay</div>
+                <div class="footer-tag">🌀 Spin 5 Mins (10,000 RPM)</div>
+                <div class="footer-tag">📈 Read %</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 17: ESR Introduction + Principle ==================== -->
+        <section class="slide">
+            <div class="slide-number">17 / 20</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">ESR: Intro & Principle (ईएसआर)</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Definition & Principle (परिभाषा और सिद्धांत)</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">📏</span>What is ESR? (क्या है?)</div>
+                            <p class="point-desc"><strong>Full Form:</strong> Erythrocyte Sedimentation Rate.<br><strong>Definition:</strong> यह वह दर (Rate) है जिस पर RBCs (एरिथ्रोसाइट्स) एक वर्टिकल ट्यूब में 1 घंटे में नीचे बैठ (Settle) जाते हैं। (Unit: mm/hr).</p>
+                        </li>
+                         <li>
+                            <div class="point-title"><span class="icon">🔗</span>Principle (सिद्धांत): Rouleaux Formation</div>
+                            <p class="point-desc">RBCs पर नेगेटिव चार्ज होता है, इसलिए वे एक-दूसरे को दूर धकेलते हैं और धीरे-धीरे बैठते हैं।<br>लेकिन सूजन (Inflammation) या इन्फेक्शन में, प्लाज्मा में पॉजिटिव चार्ज वाले प्रोटीन (जैसे <strong>Fibrinogen</strong>) बढ़ जाते हैं।<br>ये प्रोटीन RBCs के नेगेटिव चार्ज को बेअसर कर देते हैं, जिससे RBCs सिक्कों के ढेर (Rouleaux) की तरह चिपक जाते हैं।<br>यह Rouleaux भारी होते हैं और तेजी से नीचे बैठते हैं, जिससे ESR बढ़ जाता है।</p>
+                        </li>
+                    </ul>
+                     <h3>Stages of Sedimentation (3 चरण)</h3>
+                     <ol style="padding-left: 30px; font-size: 18px; color: var(--text-medium); line-height: 1.8;">
+                        <li style="margin-bottom: 10px;"><strong>Stage 1 (10 min):</strong> Rouleaux Formation (चिपकना)।</li>
+                        <li style="margin-bottom: 10px;"><strong>Stage 2 (40 min):</strong> Rapid Settling (तेजी से बैठना)।</li>
+                        <li style="margin-bottom: 10px;"><strong>Stage 3 (10 min):</strong> Packing (जमा होना)।</li>
+                     </ol>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Clinical Significance (महत्व)</h4>
+                        <ul>
+                            <li>यह एक <strong>Non-specific Test</strong> (गैर-विशिष्ट) है।</li>
+                            <li>यह केवल यह बताता है कि शरीर में कहीं सूजन (Inflammation) है, लेकिन यह नहीं बताता कि कहाँ या क्यों है।</li>
+                            <li>इसका उपयोग रोगों की निगरानी (Monitoring) के लिए किया जाता है (जैसे Tuberculosis, Rheumatoid Arthritis)।</li>
+                        </ul>
+                    </div>
+                    <div class="info-card grow">
+                        <h4>Factors Affecting ESR (कारक)</h4>
+                        <table class="mini-table">
+                            <thead>
+                                <tr>
+                                    <th>Increases ESR (बढ़ाता है)</th>
+                                    <th>Decreases ESR (घटाता है)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Inflammation</td>
+                                    <td>Polycythemia (RBC ज्यादा)</td>
+                                </tr>
+                                <tr>
+                                    <td>Anemia (RBC कम)</td>
+                                    <td>Sickle Cell Anemia (आकार)</td>
+                                </tr>
+                                 <tr>
+                                    <td>Pregnancy</td>
+                                    <td>Spherocytosis (आकार)</td>
+                                </tr>
+                                <tr>
+                                    <td>Tuberculosis (TB)</td>
+                                    <td>Low Fibrinogen</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">📏 mm/hr</div>
+                <div class="footer-tag">🔗 Rouleaux Formation</div>
+                <div class="footer-tag">📈 Fibrinogen</div>
+                <div class="footer-tag">🚫 Non-specific Test</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 18: ESR (Westergren Method) Procedure ==================== -->
+        <section class="slide">
+            <div class="slide-number">18 / 20</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">ESR: Westergren Method (वेस्टरग्रेन)</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Procedure (प्रक्रिया)</h3>
+                    <p class="point-desc" style="padding-left: 0; margin-bottom: 20px;">यह ESR करने की स्टैण्डर्ड विधि है।</p>
+                    <div class="timeline proc">
+                        <div class="timeline-item">
+                            <div class="timeline-title">Step 1: Sample (सैंपल)</div>
+                            <div class="timeline-desc">3.8% Sodium Citrate (Black top) या EDTA (Purple top) वॉयल से रक्त लें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Step 2: Dilution (अनुपात)</div>
+                            <div class="timeline-desc">यदि सिट्रेट वॉयल का उपयोग कर रहे हैं: <strong>4 भाग रक्त + 1 भाग सिट्रेट (4:1)</strong>. (यह सबसे महत्वपूर्ण वाइवा प्रश्न है)।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Step 3: Fill Tube (ट्यूब भरें)</div>
+                            <div class="timeline-desc">Westergren Tube (300 mm लंबी, 0-200 mm मार्किंग) को ठीक '0' निशान तक भरें। एयर बबल न हो।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Step 4: Set Stand (स्टैंड)</div>
+                            <div class="timeline-desc">ट्यूब को Westergren Stand में <strong>बिल्कुल सीधा (Perfectly Vertical)</strong> खड़ा करें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Step 5: Wait (प्रतीक्षा करें)</div>
+                            <div class="timeline-desc">ठीक 1 घंटे (Exactly 1 Hour) के लिए प्रतीक्षा करें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Step 6: Read (रीडिंग लें)</div>
+                            <div class="timeline-desc">RBCs के ऊपरी स्तर (Top layer) की रीडिंग mm में पढ़ें। (Plasma की ऊंचाई)।</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Normal Values (सामान्य मान)</h4>
+                        <table class="mini-table">
+                            <thead>
+                                <tr>
+                                    <th>Group</th>
+                                    <th>Range (mm/hr)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Male (पुरुष) < 50 yrs</strong></td>
+                                    <td>0 - 15 mm/hr</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Female (महिला) < 50 yrs</strong></td>
+                                    <td>0 - 20 mm/hr</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Male (पुरुष) > 50 yrs</strong></td>
+                                    <td>0 - 20 mm/hr</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Female (महिला) > 50 yrs</strong></td>
+                                    <td>0 - 30 mm/hr</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="info-card grow">
+                        <h4>Common Errors (आम गलतियाँ)</h4>
+                        <ul>
+                            <li><strong>Tilt (झुकाव):</strong> ट्यूब का सीधा न होना (False High ESR)।</li>
+                            <li><strong>Bubbles (बुलबुले):</strong> एयर बबल होना (False Low ESR)।</li>
+                            <li><strong>Delay (देरी):</strong> 2 घंटे से ज्यादा पुराना सैंपल (False Low ESR)।</li>
+                            <li><strong>Ratio (अनुपात):</strong> 4:1 अनुपात गलत होना।</li>
+                            <li><strong>Temperature:</strong> ज्यादा तापमान (False High ESR)।</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">🧪 4:1 Ratio (Citrate)</div>
+                <div class="footer-tag">📏 0-200 mm Tube</div>
+                <div class="footer-tag">⏰ Read after 1 Hour</div>
+                <div class="footer-tag">🚫 Must be Vertical</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 19: Blood Grouping Basics (ABO + Rh) ==================== -->
+        <section class="slide">
+            <div class="slide-number">19 / 20</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">Blood Grouping Basics (ब्लड ग्रुप)</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>ABO System (एबीओ सिस्टम)</h3>
+                    <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">🅰️</span>Antigen (एंटीजन)</div>
+                            <p class="point-desc">यह RBC की सतह पर पाया जाने वाला एक पदार्थ (प्रोटीन/शुगर) है। (जैसे A Antigen, B Antigen)।</p>
+                        </li>
+                        <li>
+                            <div class="point-title"><span class="icon">🅱️</span>Antibody (एंटीबॉडी)</div>
+                            <p class="point-desc">यह प्लाज्मा (Plasma) में पाया जाने वाला एक रक्षात्मक प्रोटीन है। (जैसे Anti-A, Anti-B)।</p>
+                        </li>
+                    </ul>
+                    <h3>Landsteiner's Law (लैंडस्टीनर का नियम)</h3>
+                     <ul>
+                        <li>
+                            <div class="point-title"><span class="icon"> नियम 1 </span></div>
+                            <p class="point-desc">यदि RBC पर कोई एंटीजन (Antigen) मौजूद है, तो प्लाज्मा में उससे संबंधित एंटीबॉडी (Antibody) अनुपस्थित होगी।</p>
+                        </li>
+                         <li>
+                            <div class="point-title"><span class="icon"> नियम 2 </span></div>
+                            <p class="point-desc">यदि RBC पर कोई एंटीजन अनुपस्थित है, तो प्लाज्मा में उससे संबंधित एंटीबॉडी मौजूद होगी।</p>
+                        </li>
+                    </ul>
+                    <h3>Rh System (आरएच सिस्टम)</h3>
+                     <ul>
+                        <li>
+                            <div class="point-title"><span class="icon">➕</span>D Antigen (डी एंटीजन)</div>
+                            <p class="point-desc">यदि RBC पर <strong>D Antigen</strong> मौजूद है, तो व्यक्ति <strong>Rh Positive (Rh+)</strong> है।<br>यदि D Antigen अनुपस्थित है, तो व्यक्ति <strong>Rh Negative (Rh-)</strong> है।</D>
+                        </li>
+                    </ul>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>ABO Group Summary (सारांश)</h4>
+                        <table class="mini-table">
+                            <thead>
+                                <tr>
+                                    <th>Blood Group</th>
+                                    <th>Antigen (RBC पर)</th>
+                                    <th>Antibody (Plasma में)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>A</strong></td>
+                                    <td>A</td>
+                                    <td>Anti-B</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>B</strong></td>
+                                    <td>B</td>
+                                    <td>Anti-A</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>AB</strong></td>
+                                    <td>A and B</td>
+                                    <td>None (कोई नहीं)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>O</strong></td>
+                                    <td>None (कोई नहीं)</td>
+                                    <td>Anti-A and Anti-B</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                     <div class="info-card grow">
+                        <h4>Forward vs Reverse Grouping</h4>
+                        <ul>
+                            <li><strong>Forward Grouping (फॉरवर्ड):</strong> मरीज की RBCs पर Antigen का पता लगाना। (हम ज्ञात Antisera का उपयोग करते हैं)।</li>
+                            <li><strong>Reverse Grouping (रिवर्स):</strong> मरीज के Plasma में Antibodies का पता लगाना। (हम ज्ञात A और B Cells का उपयोग करते हैं)।</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">🅰️ Antigen (on RBC)</div>
+                <div class="footer-tag">🅱️ Antibody (in Plasma)</div>
+                <div class="footer-tag">➕ Rh (D Antigen)</div>
+                <div class="footer-tag">🔬 Landsteiner's Law</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 20: Blood Grouping (Slide Method Procedure) ==================== -->
+        <section class="slide">
+            <div class="slide-number">20 / 20</div>
+            <div class="slide-header">
+                <div class="brand">Prepe</div>
+                <div class="slide-title">Blood Grouping: Procedure (प्रक्रिया)</div>
+            </div>
+            <div class="slide-content">
+                <div class="main-column">
+                    <h3>Slide Method (स्लाइड विधि)</h3>
+                    <p class="point-desc" style="padding-left: 0; margin-bottom: 20px;">यह ब्लड ग्रुपिंग की एक तेज और आसान (लेकिन कम विश्वसनीय) विधि है।</p>
+                    <div class="timeline proc">
+                        <div class="timeline-item">
+                            <div class="timeline-title">Step 1: Label Slide (लेबल करें)</div>
+                            <div class="timeline-desc">एक साफ ग्लास स्लाइड पर A, B और D लिखें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Step 2: Add Antisera (एंटीसिरा डालें)</div>
+                            <div class="timeline-desc">A पर 1 ड्रॉप Anti-A (Blue), B पर 1 ड्रॉप Anti-B (Yellow), और D पर 1 ड्रॉप Anti-D (Colourless) डालें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Step 3: Add Blood (रक्त डालें)</div>
+                            <div class="timeline-desc">तीनों ड्रॉप्स में 1-1 ड्रॉप मरीज का EDTA रक्त डालें। (रक्त की मात्रा एंटीसिरा के बराबर होनी चाहिए)।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Step 4: Mix (मिक्स करें)</div>
+                            <div class="timeline-desc">अलग-अलग एप्लीकेटर स्टिक (Applicator Sticks) से तीनों को मिक्स करें।</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Step 5: Observe (देखें)</div>
+                            <div class="timeline-desc">स्लाइड को 2 मिनट तक धीरे-धीरे रॉक (Rock) करें और <strong>Agglutination (थक्का / क्लंपिंग)</strong> देखें।</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="side-column">
+                    <div class="info-card">
+                        <h4>Interpretation Table (व्याख्या)</h4>
+                        <table class="mini-table">
+                            <thead>
+                                <tr>
+                                    <th>Anti-A</th>
+                                    <th>Anti-B</th>
+                                    <th>Anti-D</th>
+                                    <th>Blood Group</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Clump (थक्का)</td>
+                                    <td>No Clump</td>
+                                    <td>Clump (थक्का)</td>
+                                    <td><strong>A Positive</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>No Clump</td>
+                                    <td>Clump (थक्का)</td>
+                                    <td>Clump (थक्का)</td>
+                                    <td><strong>B Positive</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Clump (थक्का)</td>
+                                    <td>Clump (थक्का)</td>
+                                    <td>Clump (थक्का)</td>
+                                    <td><strong>AB Positive</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>No Clump</td>
+                                    <td>No Clump</td>
+                                    <td>Clump (थक्का)</td>
+                                    <td><strong>O Positive</strong></td>
+                                </tr>
+                                 <tr>
+                                    <td>No Clump</td>
+                                    <td>No Clump</td>
+                                    <td>No Clump</td>
+                                    <td><strong>O Negative</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <div class="footer-tag">🔵 Anti-A</div>
+                <div class="footer-tag">🟡 Anti-B</div>
+                <div class="footer-tag">⚪ Anti-D</div>
+                <div class="footer-tag">🔥 Agglutination (Clumping)</div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 21: FINAL WORDS (FROM DEMO) ==================== -->
+        <section class="slide final-slide">
+            <div class="slide-number">21 / 21</div>
+            <div class="final-slide-content">
+                <h2>Welcome to Prepe</h2>
+                <h3>अपनी तैयारी को नई उड़ान दें!</h3>
+                <p>हमारे अन्य बेहतरीन कोर्सेस भी देखें।</p>
+                
+                <div class="final-slide-grid">
+                    <!-- Box 1: Offer -->
+                    <a href="https://offer.prepeai.in" class="final-slide-box" target="_blank" rel="noopener noreferrer">
+                        <div class="icon offer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+                        </div>
+                        <h4>FLAT 50% OFF</h4>
+                        <span>Limited Time Offer</span>
+                    </a>
+                    
+                    <!-- Box 2: Courses -->
+                    <a href="https://shop.prepeai.in" class="final-slide-box" target="_blank" rel="noopener noreferrer">
+                        <div class="icon courses">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                        </div>
+                        <h4>Explore More Courses</h4>
+                        <span>Expand Your Knowledge</span>
+                    </a>
+                    
+                    <!-- Box 3: Instagram -->
+                    <a href="https://insta.prepeai.in" class="final-slide-box insta-box" target="_blank" rel="noopener noreferrer">
+                        <div class="icon insta">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </div>
+                        <h4>Follow on Instagram</h4>
+                        <span>@prepe.ai</span>
+                    </a>
+                </div>
+                
+                <div class="final-slide-divider"></div>
+                
+                <a href="https://www.prepeai.in" class="final-slide-button" target="_blank" rel="noopener noreferrer">
+                    Visit Our Website
+                </a>
+            </div>
+        </section>
+
+    </main>
 </body>
 </html>
