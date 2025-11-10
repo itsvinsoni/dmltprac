@@ -14,14 +14,81 @@ const MenuIcon = () => (
     </svg>
 );
 
+// --- Page content is now embedded directly as strings ---
+const page1Content = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 1</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+</head>
+<body class="bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-sans">
+    <div class="min-h-screen flex items-center justify-center">
+        <div class="text-center p-8">
+            <h1 class="text-5xl font-bold text-blue-500 mb-4">Welcome to Document One</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-300">This is the content of the first HTML file. It's styled independently using Tailwind CSS.</p>
+            <div class="mt-8">
+                <img src="https://picsum.photos/800/400?random=1" alt="Random placeholder image" class="rounded-lg shadow-xl mx-auto">
+            </div>
+        </div>
+    </div>
+</body>
+</html>`;
+
+const page2Content = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 2</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+</head>
+<body class="bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-sans">
+    <div class="min-h-screen flex items-center justify-center">
+        <div class="text-center p-8">
+            <h1 class="text-5xl font-bold text-green-500 mb-4">This is the Second Page</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-300">Here you can see the content for the second document, demonstrating the switch.</p>
+             <div class="mt-8">
+                <img src="https://picsum.photos/800/400?random=2" alt="Random placeholder image" class="rounded-lg shadow-xl mx-auto">
+            </div>
+        </div>
+    </div>
+</body>
+</html>`;
+
+const page3Content = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 3</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+</head>
+<body class="bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-sans">
+    <div class="min-h-screen flex items-center justify-center">
+        <div class="text-center p-8">
+            <h1 class="text-5xl font-bold text-purple-500 mb-4">You've Reached Page Three</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-300">This is the final document in this simple demonstration dashboard application.</p>
+             <div class="mt-8">
+                <img src="https://picsum.photos/800/400?random=3" alt="Random placeholder image" class="rounded-lg shadow-xl mx-auto">
+            </div>
+        </div>
+    </div>
+</body>
+</html>`;
+
 const pages = [
-  { name: 'Document 1', path: '/page1.html' },
-  { name: 'Document 2', path: '/page2.html' },
-  { name: 'Document 3', path: '/page3.html' },
+  { id: 'page1', name: 'Document 1', content: page1Content },
+  { id: 'page2', name: 'Document 2', content: page2Content },
+  { id: 'page3', name: 'Document 3', content: page3Content },
 ];
 
 const App: React.FC = () => {
-  const [selectedPage, setSelectedPage] = useState<string>(pages[0].path);
+  const [selectedPageId, setSelectedPageId] = useState<string>(pages[0].id);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -38,7 +105,7 @@ const App: React.FC = () => {
     };
   }, []);
 
-  const currentPage = pages.find(p => p.path === selectedPage) || pages[0];
+  const currentPage = pages.find(p => p.id === selectedPageId) || pages[0];
 
   return (
     <div className="flex flex-col h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans">
@@ -83,13 +150,13 @@ const App: React.FC = () => {
                         <div className="py-1" role="menu" aria-orientation="vertical">
                             {pages.map(page => (
                                 <button
-                                    key={page.name}
+                                    key={page.id}
                                     onClick={() => {
-                                        setSelectedPage(page.path);
+                                        setSelectedPageId(page.id);
                                         setIsMenuOpen(false);
                                     }}
                                     className={`w-full text-left block px-4 py-2 text-sm font-medium transition-colors ${
-                                        selectedPage === page.path
+                                        selectedPageId === page.id
                                             ? 'bg-blue-500 text-white'
                                             : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                                     }`}
@@ -109,8 +176,8 @@ const App: React.FC = () => {
       <main className="flex-1 p-2 md:p-6 overflow-hidden">
         <div className="w-full h-full bg-white dark:bg-gray-800 rounded-xl shadow-2xl overflow-hidden">
           <iframe
-            key={selectedPage} // key is important to force re-render on src change
-            src={selectedPage}
+            key={selectedPageId} // key is important to force re-render on src change
+            srcDoc={currentPage.content}
             title="Content Viewer"
             className="w-full h-full border-none"
             sandbox="allow-scripts allow-same-origin"
